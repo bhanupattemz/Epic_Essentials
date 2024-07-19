@@ -1,0 +1,38 @@
+h2 {
+    text-align: center;
+    border-bottom: 2px solid rgb(94, 93, 93);
+    width: 30%;
+    margin-left: 35%;
+    font-size: xx-large;
+}
+body{
+    background-color: #f1f3f6;
+}
+.container{
+   display: grid;
+   grid-template-columns: auto 1fr;
+}
+.products-section{
+    margin: 5px;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+}
+.filters{
+    height: 100vh;
+    margin: 5px;
+    background-color: white;
+}
+.products{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2%;
+}

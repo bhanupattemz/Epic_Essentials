@@ -1,0 +1,50 @@
+footer{
+    background-color: #31363F;
+    color: #EEEEEE;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    padding: 20px;
+
+}
+
+.left-part button{
+    margin: 5px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background-color: black;
+    color: #EEEEEE;
+    border: 0px;
+}
+
+.middle-part h1{
+    color: #535C91;
+    
+}
+
+.right-part{
+    display: flex;
+    flex-direction: column;
+    color: #EEEEEE;
+}
+
+.right-part a{
+    text-decoration: none;
+    color: #EEEEEE;
+    margin: 3px;
+    transition: 0.2s;
+}
+
+.right-part a:hover{
+    color: #535C91;
+}
+
+@media only screen and (max-width: 375px) {
+    footer{
+        display: flex;
+        padding: 10%;
+        flex-direction: column;
+    }
+  }
+  

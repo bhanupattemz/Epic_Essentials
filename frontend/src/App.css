@@ -1,0 +1,9 @@
+*{
+    margin: 0%;
+    scroll-behavior: smooth;
+}
+.main{
+    min-height: 100vh;
+}
+
+    

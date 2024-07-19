@@ -1,0 +1,137 @@
+body {
+    /* background-color: #E5E1DA; */
+    color: #393E46;
+}
+
+.product-card {
+    background-color: #E5E1DA;
+    padding: 5%;
+}
+
+.productDetails {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.productDetails>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2% 5%;
+    border: 2px solid white;
+}
+
+.css-ohwg9z {
+    width: 80%;
+    height: fit-content;
+
+}
+
+.CarouselImage {
+    width: 100%;
+    height: fit-content;
+}
+
+.details-name {
+    padding-bottom: 3%;
+    border-bottom: 2px solid white;
+}
+
+.details-name>h3,
+.details-name>p {
+    margin: 0%;
+}
+
+.details-rating {
+    padding-bottom: 3%;
+    border-bottom: 2px solid white;
+}
+
+.details-quantity {
+    padding-bottom: 3%;
+    border-bottom: 2px solid white;
+}
+
+.details-quantity>p {
+    font-size: 1.5rem;
+}
+
+.details-quantity>button {
+    padding: 5px 7px;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.details-quantity>input {
+    width: 10px;
+    padding: 4px 7px;
+}
+
+.details-quantity>button:nth-of-type(3) {
+    background-color: #ff6347;
+    padding: 7px 10px;
+    border-radius: 10px;
+    margin-left: 2%;
+    transition: 1s;
+    border: 0px;
+}
+
+.details-quantity>button:nth-of-type(3):hover {
+    background-color: #FFBB70;
+}
+
+.details-quantity>p {
+    margin: 10px;
+}
+
+.details-stock {
+    padding-bottom: 3%;
+    border-bottom: 2px solid white;
+}
+
+
+/* Reviews */
+.reviews {
+    background-color: white;
+}
+
+.reviews>div>h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    border-bottom: 2px solid rgb(102, 99, 99);
+    width: 20%;
+    padding: 10px;
+}
+
+.reviews>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.allReviews {
+    display: flex;
+    overflow: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2% 5%;
+}
+
+/*Review*/
+.review-card {
+    width: 30%;
+    border: 2px solid rgb(102, 99, 99);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.review-card>img {
+    width: 30%;
+    height: fit-content;
+}

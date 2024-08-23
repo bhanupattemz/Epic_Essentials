@@ -1,232 +1,180 @@
+// products.js
+
 module.exports.products = [
     {
-        "name": "Product 1",
-        "discription": "Description for product 1",
-        "price": 100,
-        "rating": 4.5,
-        "images": [
-            {
-                "public_id": "sample_id_1",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Gaming Headset Elite",
+        discription: "High-end gaming headset with advanced features.",
+        price: 12000,
+        category: "Headset",
+        stock: 15,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 1",
-        "stock": 50,
-        "numOfReviews": 10,
-        "reviews": [
-            {
-                "name": "Reviewer 1",
-                "rating": 5,
-                "Comment": "Great product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Microphone", value: "Noise-canceling" },
+            { key: "Audio", value: "7.1 Surround Sound" }
+        ]
     },
     {
-        "name": "Product 2",
-        "discription": "Description for product 2",
-        "price": 200,
-        "rating": 4.0,
-        "images": [
-            {
-                "public_id": "sample_id_2",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Gaming Chair Pro",
+        discription: "Professional-grade gaming chair with lumbar support.",
+        price: 25000,
+        category: "Chair",
+        stock: 10,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 2",
-        "stock": 40,
-        "numOfReviews": 8,
-        "reviews": [
-            {
-                "name": "Reviewer 2",
-                "rating": 4,
-                "Comment": "Very good product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Lumbar Support", value: "Yes" },
+            { key: "Material", value: "Leather" }
+        ]
     },
     {
-        "name": "Product 3",
-        "discription": "Description for product 3",
-        "price": 150,
-        "rating": 4.2,
-        "images": [
-            {
-                "public_id": "sample_id_3",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Gaming Monitor 24-inch",
+        discription: "24-inch monitor with high refresh rate for smooth gaming.",
+        price: 18000,
+        category: "Monitor",
+        stock: 8,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" }
         ],
-        "category": "Category 3",
-        "stock": 30,
-        "numOfReviews": 5,
-        "reviews": [
-            {
-                "name": "Reviewer 3",
-                "rating": 4,
-                "Comment": "Good product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Refresh Rate", value: "144Hz" },
+            { key: "Resolution", value: "1920x1080" }
+        ]
     },
     {
-        "name": "Product 4",
-        "discription": "Description for product 4",
-        "price": 300,
-        "rating": 3.5,
-        "images": [
-            {
-                "public_id": "sample_id_4",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Wireless Gaming Mouse",
+        discription: "Ergonomic wireless gaming mouse with high DPI.",
+        price: 4000,
+        category: "Mouse",
+        stock: 20,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" }
         ],
-        "category": "Category 4",
-        "stock": 20,
-        "numOfReviews": 12,
-        "reviews": [
-            {
-                "name": "Reviewer 4",
-                "rating": 3,
-                "Comment": "Average product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "DPI", value: "16000" },
+            { key: "Connectivity", value: "Wireless" }
+        ]
     },
     {
-        "name": "Product 5",
-        "discription": "Description for product 5",
-        "price": 250,
-        "rating": 4.8,
-        "images": [
-            {
-                "public_id": "sample_id_5",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Gaming Keyboard K8",
+        discription: "Compact mechanical keyboard with customizable backlight.",
+        price: 7000,
+        category: "Keyboard",
+        stock: 25,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 5",
-        "stock": 60,
-        "numOfReviews": 15,
-        "reviews": [
-            {
-                "name": "Reviewer 5",
-                "rating": 5,
-                "Comment": "Excellent product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Switch Type", value: "Gateron" },
+            { key: "Backlight", value: "Customizable RGB" }
+        ]
     },
     {
-        "name": "Product 6",
-        "discription": "Description for product 6",
-        "price": 400,
-        "rating": 3.0,
-        "images": [
-            {
-                "public_id": "sample_id_6",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Portable SSD 1TB",
+        discription: "High-speed portable SSD with 1TB storage.",
+        price: 15000,
+        category: "Storage",
+        stock: 15,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 6",
-        "stock": 70,
-        "numOfReviews": 20,
-        "reviews": [
-            {
-                "name": "Reviewer 6",
-                "rating": 3,
-                "Comment": "Below average product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Storage", value: "1TB" },
+            { key: "Connectivity", value: "USB 3.2" }
+        ]
     },
     {
-        "name": "Product 7",
-        "discription": "Description for product 7",
-        "price": 350,
-        "rating": 4.7,
-        "images": [
-            {
-                "public_id": "sample_id_7",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Gaming Headset X5",
+        discription: "Advanced gaming headset with surround sound.",
+        price: 6000,
+        category: "Headset",
+        stock: 12,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" }
         ],
-        "category": "Category 7",
-        "stock": 80,
-        "numOfReviews": 25,
-        "reviews": [
-            {
-                "name": "Reviewer 7",
-                "rating": 5,
-                "Comment": "Highly recommended product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Sound", value: "Surround 7.1" },
+            { key: "Microphone", value: "Adjustable" }
+        ]
     },
     {
-        "name": "Product 8",
-        "discription": "Description for product 8",
-        "price": 500,
-        "rating": 4.3,
-        "images": [
-            {
-                "public_id": "sample_id_8",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Adjustable Desk Z",
+        discription: "Height-adjustable desk for ergonomic gaming setup.",
+        price: 12000,
+        category: "Desk",
+        stock: 7,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 8",
-        "stock": 90,
-        "numOfReviews": 30,
-        "reviews": [
-            {
-                "name": "Reviewer 8",
-                "rating": 4,
-                "Comment": "Worth the price!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Adjustable Height", value: "Yes" },
+            { key: "Material", value: "Wood" }
+        ]
     },
     {
-        "name": "Product 9",
-        "discription": "Description for product 9",
-        "price": 450,
-        "rating": 4.6,
-        "images": [
-            {
-                "public_id": "sample_id_9",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "Gaming Controller Pro",
+        discription: "Advanced gaming controller with customizable buttons.",
+        price: 5000,
+        category: "Controller",
+        stock: 14,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 9",
-        "stock": 100,
-        "numOfReviews": 35,
-        "reviews": [
-            {
-                "name": "Reviewer 9",
-                "rating": 5,
-                "Comment": "Fantastic product!"
-            }
-        ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Connectivity", value: "Wireless" },
+            { key: "Custom Buttons", value: "Yes" }
+        ]
     },
     {
-        "name": "Product 10",
-        "discription": "Description for product 10",
-        "price": 600,
-        "rating": 4.9,
-        "images": [
-            {
-                "public_id": "sample_id_10",
-                "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1719822534/cld-sample-5.jpg"
-            }
+        name: "RGB Gaming Mousepad",
+        discription: "Large mousepad with RGB lighting effects.",
+        price: 2500,
+        category: "Mousepad",
+        stock: 22,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" }
         ],
-        "category": "Category 10",
-        "stock": 110,
-        "numOfReviews": 40,
-        "reviews": [
-            {
-                "name": "Reviewer 10",
-                "rating": 5,
-                "Comment": "Best product ever!"
-            }
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Lighting", value: "RGB" },
+            { key: "Size", value: "Extended" }
+        ]
+    },
+    {
+        name: "VR Headset X1",
+        discription: "High-resolution VR headset for immersive gaming.",
+        price: 45000,
+        category: "VR Headset",
+        stock: 5,
+        images: [
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723726296/Epic%20Essentials/a9wrkqi8e9n9rfzdzigp.png" },
+            { public_id: "default", url: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1722964527/Epic%20Essentials/e3zr22ljb5ctftlitlfh.jpg" }
         ],
-        "createdAt": "2024-07-01T12:34:56.789Z"
+        user: "668911c8f1961a1c5ecd9844",
+        specifications: [
+            { key: "Resolution", value: "4K" },
+            { key: "Field of View", value: "110 Degrees" }
+        ]
     }
-]
+];

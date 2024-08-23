@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
-const Review= require("./reviewModel")
+const Review = require("./reviewModel")
+const { cloudinary } = require('../config/clodinary')
 
-const productSchema =new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "product Name required"],
@@ -32,38 +33,46 @@ const productSchema =new mongoose.Schema({
             }
         }
     ],
-    category:{
-        type:String,
-        required:[true,"please enter category of product"]
+    category: {
+        type: String,
+        required: [true, "please enter category of product"]
     },
-    stock:{
-        type:Number,
-        required:[true,"Please enter items instock"]
+    stock: {
+        type: Number,
+        required: [true, "Please enter items instock"]
     },
-    numOfReviews:{
-        type:Number,
-        default:0
+    numOfReviews: {
+        type: Number,
+        default: 0
     },
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User",
-        required:true
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     },
-    createdAt:{
-        type:Date,
-        default:Date.now
+    createdAt: {
+        type: Date,
+        default: Date.now()
     },
-    review:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Review"
-    }]
+    review: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Review"
+    }],
+    specifications: [
+        {
+            key: { type: String, required: true },
+            value: { type: String, require: true }
+        }
+    ]
 
 })
 productSchema.post("findOneAndDelete", async (product) => {
     if (product) {
         try {
             const review = await Review.deleteMany({ _id: { $in: product.review } });
-            console.log(review)
+            for (let image of product.images) {
+                await cloudinary.uploader.destroy(image.public_id);
+            }
         } catch (error) {
             console.log(error)
         }
@@ -71,4 +80,4 @@ productSchema.post("findOneAndDelete", async (product) => {
     }
 })
 
-module.exports=mongoose.model("Products",productSchema)
+module.exports = mongoose.model("Products", productSchema)

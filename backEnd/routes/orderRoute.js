@@ -1,6 +1,6 @@
 const express = require("express")
 const orderController = require("../controllers/orderController")
-const { isLoggedIn } = require("../middleware")
+const { isLoggedIn,isAdmin } = require("../middleware")
 
 const router = express.Router()
 
@@ -12,7 +12,8 @@ router.route("/orders")
 
 router.route("/order/:_id")
     .get(isLoggedIn,orderController.isUsersOrder, orderController.getSingleOrder)
-    .put(isLoggedIn,orderController.isUsersOrder, orderController.updateOrder)
+    .put(isLoggedIn,isAdmin,orderController.isUsersOrder, orderController.updateOrder)
+    .patch(isLoggedIn,orderController.isUsersOrder,orderController.cancelOrder)
     .delete(isLoggedIn,orderController.isUsersOrder, orderController.deleteOrder)
 
 

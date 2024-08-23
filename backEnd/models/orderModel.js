@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
     shippingInfo: {
         address: { type: String, required: true },
+        phoneNO: { type: Number, required: true },
         city: { type: String, required: true },
         state: { type: String, required: true },
         country: { type: String, required: true, default: "India" },
@@ -15,7 +16,7 @@ const orderSchema = new mongoose.Schema({
         image: { type: String, required: true },
         product: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Product",
+            ref: "Products",
             required: true
         }
     }],
@@ -27,7 +28,7 @@ const orderSchema = new mongoose.Schema({
     paymentInfo: {
         id: { type: String, required: true },
         status: { type: String, required: true },
-        payedAt: { type: Date, required: true }
+        payedAt: { type: Date, required: true ,default:Date.now()}
     },
     itemPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
@@ -39,7 +40,8 @@ const orderSchema = new mongoose.Schema({
         default: "processing"
     },
     deliveredAt: Date,
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    deliveredAt:{ type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model("Order", orderSchema);

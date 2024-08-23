@@ -1,16 +1,22 @@
 const express = require("express")
-const { isloggedIn } = require("../middleware")
+const { isLoggedIn, isAdmin } = require("../middleware")
 const reviewController = require("../controllers/reviewController")
 const router = express.Router()
 
-router.route("/reviews")
-    .get(reviewController.getAllReviews)
+router.route("/admin/reviews")
+    .get(isLoggedIn, isAdmin, reviewController.getAllReviews)
+router.route("/admin/reviews/find")
+    .get(isLoggedIn, isAdmin, reviewController.searchReview)
 
-router.route("/review/new/:product_id")
-    .post(reviewController.createReview)
+router.route("/reviews/user")
+    .get(isLoggedIn, reviewController.getUserReviews)
     
+router.route("/review/new/:product_id")
+    .post(isLoggedIn, reviewController.createReview)
+
 router.route("/review/:review_id")
-    .put(reviewController.updateReview)
-    .delete(reviewController.deleteReview)
+    .get(isLoggedIn, reviewController.getReview)
+    .put(isLoggedIn, reviewController.updateReview)
+    .delete(isLoggedIn, reviewController.deleteReview)
 
 module.exports = router

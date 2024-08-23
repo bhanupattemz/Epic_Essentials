@@ -1,0 +1,14 @@
+.admin-process-order-main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-process-order-slidebar{
+    width: 20%;
+    border-right: 2px solid white;
+    min-height: 100vh;
+}
+.admin-process-order-details{
+    width: 80%;
+}

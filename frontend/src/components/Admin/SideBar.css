@@ -1,0 +1,19 @@
+.sidebar-main-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 50vh;
+    cursor: pointer;
+}
+
+.sidebar-main-container  a{
+    text-decoration: none;
+    color: gray;
+}
+

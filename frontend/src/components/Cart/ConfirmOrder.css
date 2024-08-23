@@ -1,0 +1,114 @@
+.confirmOrder-main{
+    min-height: 100vh;
+    width: 96% !important;
+    margin: 2% !important;
+}
+.confirmOrder-cointainer{
+    display: flex;
+    flex-direction: row;
+    width: 96%;
+    background-color: white;
+    margin: 0% 2%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+.confirmOrder-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    border-right: 2px solid black;
+}
+.confirmOrder-address{
+    width: 90%;
+}
+.confirmOrder-cartItem-box{
+    width: 90%;
+}
+.ConfirmOrder-cartItem-pricing-container{
+    width: 30%;
+}
+.confirmOrder-cartItem{
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+.confirmOrder-cartItem-product{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+}
+.confirm-order-cartItem-img{
+    width: 20%;
+    height: 100px;
+    object-fit: contain;
+    padding: 5px;
+    padding-right: 20px;
+}
+
+
+.confirmOrder-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+}
+.confirmOrder-right>div{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.confirmOrder-right>div:nth-of-type(1){
+    border-bottom: 2px solid black;
+}
+.confirmOrder-right>div:nth-of-type(5){
+    border-bottom: 2px solid black;
+}
+.procced-to-pay-btn{
+    background-color: tomato;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+  
+    .confirmOrder-cointainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .confirmOrder-cointainer>div{
+        width: 90%;
+    }
+    .confirmOrder-left{
+        border-right: 0px;
+    }
+    .confirmOrder-cartItem-box{
+        width: 100%;
+    }
+    .confirmOrder-cartItem-product{
+        width: 55%;
+    }
+    .ConfirmOrder-cartItem-pricing-container{
+        width: 42%;
+    }
+    .confirm-order-cartItem-img{
+        width: 35%;
+    }
+    .confirmOrder-right>div{
+        width: 90%;
+    }
+}

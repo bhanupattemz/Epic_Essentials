@@ -1,0 +1,138 @@
+.loginsignup-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.loginSignup-box {
+    background-color: white;
+
+    margin: auto;
+    width: 30%;
+    border-radius: 10px;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.loginSignup-toggle {
+    display: flex;
+}
+
+.loginSignup-toggle>p {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    transition: all 0.5s;
+    margin: 0px;
+    padding-top: 7px;
+}
+
+.loginSignup-toggle p:hover {
+    color: tomato;
+}
+
+.loginSignup-box>div>button {
+    width: 50%;
+    height: 3px;
+    transition: 0.5s;
+    background-color: tomato;
+    border: none;
+}
+
+.login-form,
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: space-evenly;
+    padding: 2%;
+    height: 80%;
+    transition: 0.5s;
+}
+
+.login-form>div,
+.register-form>div {
+    width: 80%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid black;
+    padding: 1% 5%;
+}
+
+.login-form>div>input ,.register-form>div>input{
+    background-color: transparent;
+    border: 0px solid;
+}
+
+.login-form>div>input:focus ,.register-form>div>input:focus{
+    outline: none;
+}
+
+.login-button,.register-button {
+    width: 80%;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: tomato;
+    border: none;
+    transition: 0.5s;
+}
+
+.login-button:hover ,.register-button:hover{
+    background-color: rgb(247, 52, 18);
+}
+
+.shiftToLeft {
+    transform: translateX(-100%);
+}
+
+.shiftToNeutral {
+    transform: translateX(0%);
+}
+
+.shiftToNeutralForm {
+    transform: translateX(0%) translateY(-100%);
+}
+
+.shiftToRight {
+    transform: translateX(100%) ;
+}
+
+.register-avatar{
+    display: flex;
+    flex-direction: row;
+}
+.register-avatar>img{
+    width: 10%;
+    height: fit-content;
+    padding-right: 5px;
+    background-color: white;
+}
+.register-avatar>input{
+    transition: 0.5s;
+}
+.register-avatar>input::file-selector-button{
+    cursor: pointer;
+    width: 100%;
+    z-index: 2;
+    height: 5vh;
+    border: none;
+    color: black;
+    background-color: transparent;
+    
+}
+
+.register-avatar>input:hover{
+    background-color: rgb(143, 143, 143);
+}
+
+form>div>label>svg{
+    transform: translateY(3px);
+}
+form>div>input{
+    transform: translateY(-3px);
+}

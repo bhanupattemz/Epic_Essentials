@@ -1,0 +1,96 @@
+.shipping-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shipping-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 30px ;
+}
+.shipping-radio-box{
+    width: 100%;
+    padding-left: 20px;
+}
+.MuiTypography-root{
+    width: 100%;
+}
+.shipping-page-add-address{
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0px 10px 5px 10px;
+    color: blue;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.shipping-page-add-address svg{
+    transform: translateY(5px);
+}
+.shipping-page-btn{
+    padding: 7px 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+/* AddressShow */
+
+.showAddress-container {
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.showAddress-heading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.showAddress-body>p {
+    margin: 0px;
+}
+
+.showAdress-edit-delete>p {
+    cursor: pointer;
+    margin: 7px 10px;
+}
+
+.showAdress-edit-delete {
+    background-color: white;
+    border: 2px solid rgb(135, 134, 134);
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+.addressshow-verticaldots {
+    cursor: pointer;
+
+}
+
+.addressshow-verticaldots>svg {
+    font-weight: 700;
+    font-size: larger;
+}
+.showAdress-edit-delete>p:hover{
+    color: blue;
+}
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .shipping-box{
+        width: 90%;
+    }
+    .MuiFormControl-root{
+        width: 90%;
+    }
+}

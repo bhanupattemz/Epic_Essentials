@@ -15,20 +15,21 @@ import Slider from '@mui/material/Slider';
 import ReactStars from "react-rating-stars-component";
 import MetaData from "../layout/MetaData"
 const allcategory = [
-    "laptops",
-    "shoes",
-    "books",
-    "phone",
-    "Category 1",
-    "Category 2",
-    "Category 3",
-    "Category 4",
-    "Category 5",
-    "Category 6",
-    "Category 7",
-    "Category 8",
-    "Category 9",
-    "Category 10",
+    "Phone",
+    "Monitor",
+    "Mouse",
+    "Chair",
+    "Desk",
+    "Keyboard",
+    "Headset",
+    "PC",
+    "Mousepad",
+    "Controller",
+    "Speakers",
+    "Gaming Bag",
+    "VR Headset",
+    "Gaming Console",
+    "Gaming Laptop"
 ]
 export default function Products() {
     const dispatch = useDispatch()
@@ -36,11 +37,11 @@ export default function Products() {
     const query = new URLSearchParams(useLocation().search)
     const keyWord = query.get("keyword") || ""
     const pageQuery = query.get("page") || 1
-
+    let dup = 0
     const [currentPage, setCurrentPage] = useState(parseInt(pageQuery))
     const [filterPrice, setFilterPrice] = React.useState([0, 25000]);
     const [category, setcategory] = useState(allcategory)
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState()
 
     const handlePriceChange = (event, newValue) => {
         setFilterPrice(newValue);
@@ -60,13 +61,9 @@ export default function Products() {
     const handleChange = (event, value) => {
         setCurrentPage(value)
     }
-
-    useEffect(() => {
-        if (error) {
-            alert.error(error)
-        }
-        dispatch(getProducts(params))
-    }, [dispatch, params, alert, error])
+    const clearfiltersubmithandler=()=>{
+        dispatch(getProducts())
+    }
 
     useEffect(() => {
         setCurrentPage(parseInt(pageQuery))
@@ -75,7 +72,9 @@ export default function Products() {
     if (loading) {
         return <Loader />
     }
-
+    const filtersubmithandler=()=>{
+        dispatch(getProducts(params))
+    }
     return (
         <Fragment>
             <MetaData title={"Products--Epic Essentials"} />
@@ -84,7 +83,7 @@ export default function Products() {
                 <aside className="filters">
                     <div>
                         <h3>Price</h3>
-                        <Box sx={{ width: 300 }}>
+                        <Box >
                             <Slider
                                 getAriaLabel={() => 'Price'}
                                 value={filterPrice}
@@ -100,7 +99,7 @@ export default function Products() {
                         <h3>Catogories</h3>
                         {allcategory.map((item) => {
                             return (
-                                <li key={item} onClick={() => setcategory(item)}>{item}</li>
+                                <li key={item} onClick={() => setcategory(item)} style={{color:params.category===item && "blue"}}>{item}</li>
                             )
                         })}
                     </div>
@@ -114,18 +113,20 @@ export default function Products() {
                             isHalf={true}
                         />
                     </div>
+                    <button onClick={filtersubmithandler}>Filter</button>
+                    <button onClick={clearfiltersubmithandler}>Clear All Filters</button>
                 </aside>
-                <main>
+                <main className="products-page-main">
                     <section className="products-section">
                         {products && products.length > 0 ?
                             <section className="products">
                                 {products.map((prod) => {
-                                    return <Product prod={prod} />
+                                    return <Product key={prod._id} prod={prod} />
                                 })}
                             </section>
                             : <NoProductFound />}
                     </section>
-                    
+
                 </main>
             </div>
             {Math.ceil(productsCount / 10) > 1 &&

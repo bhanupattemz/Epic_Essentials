@@ -1,0 +1,122 @@
+.update-profile-main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.update-box {
+    background-color: white;
+    margin: auto;
+    width: 30%;
+    border-radius: 10px;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loginSignup-box>div>button {
+    width: 50%;
+    height: 3px;
+    transition: 0.5s;
+    background-color: tomato;
+    border: none;
+}
+
+.update-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: space-evenly;
+    padding: 2%;
+    height: 80%;
+    transition: 0.5s;
+}
+
+
+.update-form>div {
+    width: 80%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid black;
+    padding: 1% 5%;
+}
+
+.update-form>div>input{
+    background-color: transparent;
+    border: 0px solid;
+}
+
+.update-form>div>input:focus{
+    outline: none;
+}
+
+.update-button {
+    width: 80%;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: tomato;
+    border: none;
+    transition: 0.5s;
+}
+
+.update-button:hover{
+    background-color: rgb(247, 52, 18);
+}
+
+.update-avatar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.update-avatar>input{
+    transform: translateY(1px);
+    transition: 0.5s;
+}
+.update-avatar>input::file-selector-button{
+    cursor: pointer;
+    width: 100%;
+    z-index: 2;
+    height: 6vh;
+    border: none;
+    color: black;
+    background-color: transparent;
+}
+
+.update-avatar>input:hover{
+    background-color: rgb(143, 143, 143);
+}
+
+
+.avatar-preview{
+    width: 15%;
+    height: fit-content;
+    padding-right: 5px;
+    background-color: white;
+}
+.update-box>h2{
+    width: 70%;
+    margin: 0px;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .update-box{
+        width: 90%;
+    }
+    .update-avatar>img{
+        width: 18%;
+    }
+    .update-avatar>input{
+        width: 70%;
+    }
+    .update-form>div>input{
+        width: 70%;
+    }
+}

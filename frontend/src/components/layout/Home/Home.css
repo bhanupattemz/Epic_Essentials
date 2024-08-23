@@ -1,5 +1,8 @@
 .banner {
-    background-image: linear-gradient(to right, rgb(108, 220, 240), rgb(51, 244, 228));
+    background-image: url("https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723980101/Epic%20Essentials/ptjma0mbyvpcp1uudp75.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -10,7 +13,7 @@
 
 .banner h1 {
     margin: 5%;
-    font: 600 2.5vmax "Roboto";
+
 }
 
 .banner>button {
@@ -27,8 +30,8 @@
 
 .banner ::after {
     content: "";
-    width: 100vw;
-    height: 100vmin;
+    width: 100%;
+    height: 100vh;
     background-color: white;
     position: absolute;
     top: 0%;
@@ -36,15 +39,60 @@
     clip-path: polygon(0 100%, 100% 73%, 100% 100%);
     max-width: 100%;
 }
-.products{
+
+.products {
     display: flex;
     flex-direction: row;
 
 }
 
+.home-page-recent-products-container {
+    width: 100%;
+    padding: 1% 0%;
+    background-color: white;
+    margin-top: 10px;
+}
+.home-page-featured-products{
+    width: 96%;
+    padding: 1%;
+    margin: 1%;
+    background-color: white;
+}
+.home-page-recent-products {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.home-page-recent-products::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+
+}
+
+.home-page-recent-products::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.home-page-recent-products::-webkit-scrollbar-thumb {
+    background: #96bdf9;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.home-page-recent-products::-webkit-scrollbar-thumb:hover {
+    background: #5198fb;
+}
+
+
+
 /*product.jsx */
 .productCard {
-    width: 250px;
+    width: 230px;
     display: flex;
     flex-direction: column;
     color: rgb(50, 49, 49);
@@ -52,10 +100,13 @@
     padding-bottom: 0.5vmax;
     transition: 0.5s;
     border: 2px solid rgb(216, 213, 213);
+    border-radius: 5px;
 }
 
 .productCard img {
     width: 100%;
+    height: 180px;
+    object-fit:contain;
 }
 
 .productCard:hover {
@@ -64,4 +115,16 @@
 
 .productCard>div {
     padding-left: 10px;
+}
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .productCard {
+        width: 150px;
+        height: 260px;
+    }
+    
+    .productCard img {
+        width: 100%;
+        height: 100px;
+    }
 }

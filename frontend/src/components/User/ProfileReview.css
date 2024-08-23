@@ -1,0 +1,174 @@
+.profile-reviews-page-main{
+    min-height: 70vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.profile-reviews-page-side-bar{
+    width: 20%;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.profile-reviews-page-content{
+    width: 65%;
+    border: 2px solid black;
+    margin: 1%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-reviews-page-content h2{
+    font-size:x-large;
+    margin:10px 0px;
+
+}
+
+.profile-review-page-container{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.profile-reviews-page-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.profile-review-page-img{
+    width: 80%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.profile-review-page-img-container{
+    width: 20%;
+}
+.profile-review-page-comment-container{
+    width: 60%;
+}
+.profile-review-page-comment-container h4{
+    margin: 10px 0px;
+}
+
+.profile-review-page-comment{
+    min-width: 100%;
+    max-width: 100%;
+    height: 100px;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+.product-details-point-heading {
+    color: rgb(122, 122, 122);
+    font-weight: 700;
+}
+.MuiPaper-root {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.MuiPaper-root>div {
+    width: 80%;
+    margin: 10px 0px;
+}
+.profile-review-show-verticaldots {
+    cursor: pointer;
+
+}
+
+.profile-review-show-verticaldots>svg {
+    font-weight: 700;
+    font-size: larger;
+}
+
+.profile-review-edit-delete>p {
+    cursor: pointer;
+    margin: 20px 10px;
+}
+
+.profile-review-edit-delete {
+    background-color: white;
+    border: 2px solid rgb(135, 134, 134);
+    padding: 0px 10px;
+    border-radius: 5px;
+    height: 150px;
+}
+
+.profile-review-edit-delete>p:hover{
+    color: blue;
+}
+
+.profile-review-edit-delete-close-icon{
+    /* position: absolute; */
+    display: flex;
+    flex-direction: row;
+    justify-content:right;
+    color: red;
+    padding: 5px 5px 0px 0px; 
+}
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .profile-reviews-page-main{
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-reviews-page-main>section{
+        width: 90%;
+    }
+    .profile-review-page-comment{
+        height: 50px;
+    }
+    .profile-review-page-container{
+        width: 95%;
+    }
+    .profile-review-page-img{
+        width: 100%;
+    }
+    .profile-review-page-img-container{
+        width: 25%;
+    }
+    .profile-review-edit-delete-close-icon{
+        padding: 3px 0px 0px 0px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1023px),
+(max-device-width:1023px) {
+    .profile-reviews-page-side-bar{
+        width: 30%;
+    }
+    .profile-reviews-page-content h2{
+        width: 50%;
+        margin-left: 0px;
+    }
+    .profile-review-page-comment{
+        height: 50px;
+    }
+    .profile-review-page-container{
+        width: 95%;
+    }
+    .profile-review-page-img{
+        width: 100%;
+    }
+    .profile-review-page-img-container{
+        width: 25%;
+    }
+    .profile-review-edit-delete-close-icon{
+        padding: 3px 0px 0px 0px;
+        width: 100%;
+    }
+}

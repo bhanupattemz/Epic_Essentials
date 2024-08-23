@@ -10,7 +10,9 @@ router.route("/users")
 router.route("/users/:_id")
     .get(isAdmin, adminController.userDetails)
     .put(isAdmin, adminController.updateUserRole)
+    .patch(isAdmin,adminController.blockAndUnblockUser)
     .delete(isAdmin, adminController.deleteUserByAdmin)
+
 
 router.route("/orders")
     .get(isAdmin, adminController.allOrders)

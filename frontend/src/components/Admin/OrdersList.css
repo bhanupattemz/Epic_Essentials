@@ -1,0 +1,84 @@
+.admin-orders-main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-orders-slidebar{
+    width: 20%;
+    border-right: 2px solid white;
+    min-height: 100vh;
+}
+.admin-orders-details{
+    width: 80%;
+}
+.data-grid-orders-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.data-grid-orders-actions>p{
+    color: black;
+    font-size: 20px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+
+/* delete user Pop Up */
+
+.admin-delete-user-conformation{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-delete-user-box{
+    width: 40%;
+    background-color:  white;
+    padding:2% 5%;
+    border: 2px solid rgb(101, 101, 101);
+    border-radius: 20px;
+}
+.admin-delete-user-box>div:nth-of-type(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+.admin-user-update-msg-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-update-user-delete-btn,.admin-update-user-delete-cancel-btn{
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.admin-update-user-delete-btn{
+    background-color: red;
+    color: white;
+    font-weight: 700;
+    border: none;
+}
+.admin-update-user-delete-btn:hover{
+    background-color: tomato;
+}
+.admin-update-user-delete-cancel-btn{
+    border: 2px solid rgb(101, 101, 101);
+    font-weight: 700;
+}
+
+.admin-update-user-delete-cancel-btn:hover{
+    background-color: rgb(140, 140, 140);
+    color: white;   
+}
+

@@ -1,0 +1,25 @@
+.admin-product-main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-product-slidebar{
+    width: 20%;
+    border-right: 2px solid white;
+    min-height: 100vh;
+}
+.admin-product-details{
+    width: 80%;
+}
+.data-grid-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.data-grid-actions>p{
+    color: black;
+    font-size: 20px;
+    margin: 0px;
+    cursor: pointer;
+}

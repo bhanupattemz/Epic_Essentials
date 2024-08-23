@@ -13,7 +13,6 @@ async function  sendMail(options){
 
   async function main() {
     try {
-      console.log("Try Block", options)
       const info = await transporter.sendMail({
         from: "epicessentialstores@gmail.com",
         to: options.mail,
@@ -21,7 +20,6 @@ async function  sendMail(options){
         text: options.text,
         html: `${options.message}`,
       });
-      console.log("Message sent: %s", info.messageId);
       return true
     } catch (error) {
       return false

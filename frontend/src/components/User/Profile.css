@@ -1,0 +1,136 @@
+.profile-page-main {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.profile-page-side-bar {
+    width: 20%;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.profile-page-content {
+    width: 65%;
+    border: 2px solid black;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.profile-page-content h2 {
+    font-size: x-large;
+}
+
+.profile-page-content-information {
+    padding: 0% 5%;
+}
+
+.profile-page-content-information>div {
+    border-bottom: 2px solid white;
+}
+
+.profile-page-information-content {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: 600;
+    color: rgb(127, 127, 127);
+    padding: 0px 20px;
+}
+
+
+.profile-btns-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    font-weight: 700;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+
+
+
+
+.delete-user-conformation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.delete-user-box {
+    width: 40%;
+    background-color: white;
+    padding: 2% 5%;
+    border: 2px solid rgb(101, 101, 101);
+    border-radius: 20px;
+}
+
+.delete-user-box>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+
+.user-delete-btn,
+.user-delete-cancel-btn {
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.user-delete-btn {
+    background-color: red;
+    color: white;
+    font-weight: 700;
+    border: none;
+}
+
+.user-delete-btn:hover {
+    background-color: tomato;
+}
+
+.user-delete-cancel-btn {
+    border: 2px solid rgb(101, 101, 101);
+    font-weight: 700;
+}
+
+.user-delete-cancel-btn:hover {
+    background-color: rgb(140, 140, 140);
+    color: white;
+}
+
+
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .profile-page-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-page-main>section {
+        width: 90%;
+    }
+
+    .profile-page-content h2 {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 1023px),
+(max-device-width:1023px) {
+    .profile-page-side-bar {
+        width: 30%;
+    }
+}

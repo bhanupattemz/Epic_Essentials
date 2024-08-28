@@ -6,9 +6,13 @@
     align-items: center;
     justify-content: center;
 }
-.add-address-box{
+.add-address-main h1{
+    color: #405D72;
+}
+.add-address-box {
     width: 50%;
 }
+
 .add-address-form,
 .update-address-form {
     width: 100%;
@@ -78,14 +82,15 @@ input[type=number] {
 }
 
 .current-location-btn {
-    border: 2px solid #4682A9;
-    color: #4682A9;
+    border: 2px solid #52616B;
+    color: #52616B;
     font-weight: 700;
     padding: 7px 10px;
     border-radius: 7px;
     margin-left: 10%;
     cursor: pointer;
     transition: 0.5s;
+    display: inline;
 }
 
 .save-address-btn {
@@ -104,7 +109,16 @@ input[type=number] {
     background-color: #749BC2;
     color: white;
 }
+.update-address-box{
+    width: 50%;
+}
 
+@media only screen and (max-width: 1000px),
+(max-device-width:1000px) {
+    .update-address-box {
+        width: 70%;
+    }
+}
 
 @media only screen and (max-width: 600px),
 (max-device-width:600px) {
@@ -113,9 +127,11 @@ input[type=number] {
     .update-address-main {
         width: 100%;
     }
-    .add-address-box{
+
+    .add-address-box {
         width: 100%;
     }
+
     .current-location-btn {
         padding: 6px;
         border-radius: 7px;
@@ -123,11 +139,16 @@ input[type=number] {
         transition: 0.5s;
         font-size: 0.8rem;
     }
+
     .pincode-current>div>input {
         width: 26%;
         padding: 5px 0px;
         border: 2px solid #52616B;
         border-radius: 5px;
     }
-    
+
+    .update-address-box {
+        width: 100%;
+    }
+
 }

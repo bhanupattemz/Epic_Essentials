@@ -10,7 +10,9 @@ import Stepper from "./Stepper";
 import "./Payment.css";
 import { createOrder } from "../../actions/Orderactions"
 import { Country, State, City } from 'country-state-city';
+import Loader from "../layout/Loader/Loader"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import MetaData from "../layout/MetaData";
 export default function Payment() {
   const orderInfo = useSelector(state => state.cart);
   const shippingInfo = JSON.parse(localStorage.getItem("address"));
@@ -24,7 +26,7 @@ export default function Payment() {
     shippingInfo.state = state
     shippingInfo.country = country
   }
-
+  const { loading } = useSelector(state => state.order)
   const stripe = useStripe();
   const elements = useElements();
   const paybtn = useRef(null);
@@ -83,48 +85,52 @@ export default function Payment() {
 
   return (
     <Fragment>
-      <main className="payment-main">
-        <Stepper stepNo={2} />
-        <section className="payment-page-payment-section">
-          <div className="payment-page-card-style-container">
+      <MetaData title="Admin Payment -- Epic Essentials" />
+      {loading ? <Loader /> :
+        <main className="payment-main">
+          <Stepper stepNo={2} />
+          <section className="payment-page-payment-section">
+            <div className="payment-page-card-style-container">
 
-          </div>
-          <div className="payment-page-card-img">
-            <img src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724332307/Epic%20Essentials/tzrstxpxeihfdpdsfzke.png" alt="" />
-          </div>
-          <div className="payment-page-previous-btn" onClick={() => navigate("/order/confirm")}> <KeyboardBackspaceIcon /> Previous Page</div>
-          <div className="payment-container">
-            <h1>Your Payment Details</h1>
-            <form className="payment-form" onSubmit={paymentSubmitHandler}>
-              <div className="payment-page-input-container">
-                <label className="payment-page-label" htmlFor="name">CARDHOLDER NAME</label>
-                <div>
-                  <input type="text" className="payment-page-cardholder-name" value={cardHolderName} onChange={(e) => setCardHolderName(e.target.value)} />
-                </div>
-              </div>
-              <div className="payment-page-input-container">
-                <label className="payment-page-label" htmlFor="name">CARD NUMBER</label>
-                <CardNumberElement />
-              </div>
-              <div className="payment-page-expi-cvv-container">
+            </div>
+            <div className="payment-page-card-img">
+              <img src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724332307/Epic%20Essentials/tzrstxpxeihfdpdsfzke.png" alt="" />
+            </div>
+            <div className="payment-page-previous-btn" onClick={() => navigate("/order/confirm")}> <KeyboardBackspaceIcon /> Previous Page</div>
+            <div className="payment-container">
+              <h1>Your Payment Details</h1>
+              <form className="payment-form" onSubmit={paymentSubmitHandler}>
                 <div className="payment-page-input-container">
-                  <label className="payment-page-label" htmlFor="name">EXPIRE DATE</label>
-                  <CardExpiryElement />
+                  <label className="payment-page-label" htmlFor="name">CARDHOLDER NAME</label>
+                  <div>
+                    <input type="text" className="payment-page-cardholder-name" value={cardHolderName} onChange={(e) => setCardHolderName(e.target.value)} />
+                  </div>
                 </div>
                 <div className="payment-page-input-container">
-                  <label className="payment-page-label" htmlFor="name">CVV</label>
-                  <CardCvcElement />
+                  <label className="payment-page-label" htmlFor="name">CARD NUMBER</label>
+                  <CardNumberElement />
                 </div>
-              </div>
+                <div className="payment-page-expi-cvv-container">
+                  <div className="payment-page-input-container">
+                    <label className="payment-page-label" htmlFor="name">EXPIRE DATE</label>
+                    <CardExpiryElement />
+                  </div>
+                  <div className="payment-page-input-container">
+                    <label className="payment-page-label" htmlFor="name">CVV</label>
+                    <CardCvcElement />
+                  </div>
+                </div>
 
-              <button className="payment-submit-button" type="submit" ref={paybtn}>
-                Pay ₹{orderInfo.price}
-              </button>
-            </form>
-          </div>
-        </section>
+                <button className="payment-submit-button" type="submit" ref={paybtn}>
+                  Pay ₹{orderInfo.price}
+                </button>
+              </form>
+            </div>
+          </section>
 
-      </main>
+        </main>
+      }
+
     </Fragment>
   );
 }

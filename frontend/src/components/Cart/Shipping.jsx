@@ -12,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import AddIcon from '@mui/icons-material/Add';
+import MetaData from "../layout/MetaData";
 export default function Shipping() {
     const [address, setAddress] = useState({});
     const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function Shipping() {
 
     return (
         <Fragment>
+              <MetaData title="Shipping -- Epic Essentials" />
             <main className="shipping-main">
                 <Stepper stepNo={0} />
                 {loading ? <Loader /> : (

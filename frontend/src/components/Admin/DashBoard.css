@@ -3,7 +3,10 @@
     display: flex;
     flex-direction: row;
 }
-
+.admin-dashboard-heading{
+    text-align: center;
+    color: #5198fb;
+}
 .dashboard-main a {
     text-decoration: none;
 }
@@ -83,4 +86,30 @@
    width: 50%;
    height: 400px;
    margin: 10px auto;
+}
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .dashboard-main{
+        flex-direction: column;
+    }
+    .dashboard-main>section{
+        width: 100%;
+    }
+    .dashboard-sales-chart{
+        width: 90%;
+        height: 200px;
+    }
+    .dashboard-stock-chart{
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .dashboard-pou-details>a{
+        width: 100px;
+        height: 100px;
+    }
+   
 }

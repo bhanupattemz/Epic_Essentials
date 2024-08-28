@@ -19,8 +19,8 @@ const initialreviewState = {
     review: null,
     loading: false,
     error: null,
-    success:false
-   
+    success: null
+
 };
 
 // review Slice
@@ -31,6 +31,9 @@ const reviewSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -39,8 +42,8 @@ const reviewSlice = createSlice({
             })
             .addCase(CREATE_REVIEW_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.review = action.payload; 
-                state.success=true   
+                state.review = action.payload;
+                state.success = action.payload.success
             })
             .addCase(CREATE_REVIEW_FAIL, (state, action) => {
                 state.loading = false;
@@ -50,8 +53,7 @@ const reviewSlice = createSlice({
             })
             .addCase(USER_REVIEW_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.review = action.payload.review; 
-                state.success=true   
+                state.review = action.payload.review;
             })
             .addCase(USER_REVIEW_FAIL, (state, action) => {
                 state.loading = false;
@@ -61,19 +63,20 @@ const reviewSlice = createSlice({
             })
             .addCase(DELETE_REVIEW_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.review = null; 
-                state.success=true   
+                state.review = null;
+                state.success = action.payload.success
             })
             .addCase(DELETE_REVIEW_FAIL, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             }).addCase(UPDATE_REVIEW_REQUEST, (state) => {
                 state.loading = true;
+                
             })
             .addCase(UPDATE_REVIEW_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.review = action.payload.review; 
-                state.success=true   
+                state.review = action.payload.review;
+                state.success = action.payload.success
             })
             .addCase(UPDATE_REVIEW_FAIL, (state, action) => {
                 state.loading = false;
@@ -83,7 +86,7 @@ const reviewSlice = createSlice({
 });
 
 
-export const { clearErrors } = reviewSlice.actions;
+export const { clearErrors, clearSuccess } = reviewSlice.actions;
 
 export default reviewSlice.reducer;
 

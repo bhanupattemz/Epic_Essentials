@@ -8,20 +8,19 @@ import { useNavigate } from "react-router-dom"
 import { userLogout } from "../..//actions/UserAction"
 import { useDispatch, useSelector } from "react-redux"
 import { FaDropbox } from "react-icons/fa";
-import { useAlert } from "react-alert"
 import "./UserOptions.css"
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 export default function UserOptions({ user }) {
     const dispatch = useDispatch()
     const [open, setOpen] = useState(false)
     const navigate = useNavigate()
-    const alert = useAlert()
+   
     const order = () => { navigate("/orders") }
     const cart = () => { navigate("/cart") }
     const account = () => { navigate("/profile") }
     const logout = () => {
         dispatch(userLogout())
-        alert.success("LOGOUT SUCCESS")
+        
     }
     const dashbord = () => { navigate("/admin/dashboard") }
     const { isauthenticate } = useSelector(state => state.user)

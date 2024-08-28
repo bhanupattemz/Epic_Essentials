@@ -11,6 +11,7 @@ const initialProductDetailsState = {
     product: {},
     loading: false,
     error: null,
+    success:null,
 };
 
 // Product Details Slice
@@ -21,6 +22,9 @@ const productDetailsSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (action) => {
         action
@@ -39,6 +43,6 @@ const productDetailsSlice = createSlice({
     },
 });
 
-export const { clearErrors } = productDetailsSlice.actions;
+export const { clearErrors,clearSuccess } = productDetailsSlice.actions;
 
 export default productDetailsSlice.reducer;

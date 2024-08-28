@@ -8,7 +8,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router"
 import { adminGetAllUsers, adminDeleteUser } from "../../actions/UserAction"
-
+import MetaData from "../layout/MetaData";
 export default function OrderList() {
     const dispatch = useDispatch()
     const { users, loading, error } = useSelector(state => state.allUsers);
@@ -93,7 +93,8 @@ export default function OrderList() {
     }, [adminGetAllUsers, dispatch, error])
     return (
         <Fragment>
-            <main className="admin-orders-main">
+            <MetaData title="Admin Users List -- Epic Essentials" />
+            <main className="admin-users-list-main">
                 {deleteUserPop &&
                     <section className="admin-delete-user-conformation">
                         <div className="admin-delete-user-box">
@@ -114,22 +115,24 @@ export default function OrderList() {
                             </div>
                         </div>
                     </section>}
-                <section className="admin-orders-slidebar">
+                <section className="admin-user-list-slidebar">
                     <SideBar />
                 </section>
                 {!deleteUserPop &&
-                    <section className="admin-orders-details">
+                    <section className="admin-user-list-details">
+                        <h1 className="admin-user-list-details-heading">USERS</h1>
+                        <div className="admin-user-list-datagrid">
+                            <Box sx={{ height: 480, minWidth: '600px' }}>
+                                <DataGrid
+                                    columns={columns}
+                                    rows={rows}
+                                    loading={loading}
+                                    rowHeight={38}
+                                    disableRowSelectionOnClick
+                                />
+                            </Box>
+                        </div>
 
-                        <h2>Users</h2>
-                        <Box sx={{ height: 480, width: '100%' }}>
-                            <DataGrid
-                                columns={columns}
-                                rows={rows}
-                                loading={loading}
-                                rowHeight={38}
-                                disableRowSelectionOnClick
-                            />
-                        </Box>
                     </section>
                 }
 

@@ -15,6 +15,8 @@ router.route("/login")
 
 router.route("/logout")
     .post(isLoggedIn, userController.logout)
+router.route("/isuserin")
+    .get(userController.isUserIn)
 
 router.route("/password/forgot")
     .post(userController.createPasswordToken)
@@ -35,4 +37,8 @@ router.route("/user/address")
 router.route("/user/address/:_id")
     .put(isLoggedIn, userController.updateAddress)
     .delete(isLoggedIn, userController.removeAddress)
+
+
+// router.route("/user/makeadmin/:_id")
+//     .get(userController.makeadmin)
 module.exports = router

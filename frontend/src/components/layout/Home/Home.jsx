@@ -9,6 +9,7 @@ import Loader from "../Loader/Loader";
 import { useAlert } from "react-alert"
 import Carousel from "./Carousel";
 import Catagory from "./Catagory";
+import { PiMouseLeftClickFill } from "react-icons/pi";
 export default function Home() {
     const dispatch = useDispatch();
     const alert = useAlert()
@@ -34,33 +35,38 @@ export default function Home() {
                     <Fragment>
                         <MetaData title="Epic Essentials" />
                         <div className="banner">
-                            <p>Welcome to Epic Essentials</p>
-                            <h1>Find Amazing Products Below</h1>
-                            <button onClick={scrollToPosition}>
-                                Scroll <SiScrollreveal />
+                            <h1>WELCOME TO</h1>
+                            <img src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724501835/Epic%20Essentials/sfrepmxrnvmjm8zrjyoa.png" alt="" />
+
+                            <button onClick={scrollToPosition} className="home-banner-btn">
+                                Scroll <span><PiMouseLeftClickFill /></span>
                             </button>
                         </div>
                         <section className="carousel-section">
                             <Carousel />
                         </section>
-                        <section className="home-page-recent-products-container">
-                            <h3>Recent Products</h3>
-                            <div className="home-page-recent-products">
-                                {recentProducts &&
-                                    recentProducts.map((prod) => {
-                                        return (
-                                            <div>
-                                                <Product key={prod._id} prod={prod} />
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
+                        {
+                            recentProducts && recentProducts.length>0 &&
+                            <section className="home-page-recent-products-container">
+                                <h2>Recent Products</h2>
+                                <div className="home-page-recent-products">
+                                    {recentProducts &&
+                                        recentProducts.map((prod) => {
+                                            return (
+                                                <div>
+                                                    <Product key={prod._id} prod={prod} />
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
 
-                        </section>
+                            </section>
+                        }
+
                         <section className="home-page-featured-products">
                             <div className="products-heading">
-                                <h3>Featured Products</h3>
+                                <h2>Featured Products</h2>
                             </div>
                             <div className="products">
                                 {products && products.map((prod) => {

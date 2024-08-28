@@ -3,9 +3,11 @@
     display: flex;
     flex-direction: row;
 }
-.admin-update-user-main h4{
+
+.admin-update-user-main h4 {
     margin: 0px;
 }
+
 .admin-update-user-main a {
     text-decoration: none;
 }
@@ -21,30 +23,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
-.admin-update-user-card{
+
+.admin-update-user-card {
     width: 50%;
-    border: 2px solid grey;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0.5px 0.5px 7px rgb(203, 203, 203), -0.5px -0.5px 7px rgb(203, 203, 203);
 }
-.admin-update-user-card>div{
+
+.admin-update-user-card>div {
     width: 90%;
     margin-bottom: 20px;
 }
+
 .admin-update-user-details {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
 
-.admin-delete-user-conformation,.admin-update-user-conformation{
-    position:fixed;
+.admin-delete-user-conformation,
+.admin-update-user-conformation {
+    position: fixed;
     width: 100%;
     height: 100%;
     display: flex;
@@ -55,49 +62,61 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.admin-delete-user-box,.admin-update-user-box{
+.admin-delete-user-box,
+.admin-update-user-box {
     width: 40%;
-    background-color:  white;
-    padding:2% 5%;
+    background-color: white;
+    padding: 2% 5%;
     border: 2px solid rgb(101, 101, 101);
     border-radius: 20px;
 }
+
 .admin-delete-user-box>div:nth-of-type(2),
-.admin-update-user-box>div:nth-of-type(2){
+.admin-update-user-box>div:nth-of-type(2) {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 2%;
 }
-.admin-user-update-msg-div{
+
+.admin-user-update-msg-div {
     display: flex;
     flex-direction: column;
 }
 
-.admin-update-user-delete-btn,.admin-update-user-delete-cancel-btn,
-.admin-update-user-update-btn,.admin-update-user-update-cancel-btn{
+.admin-update-user-delete-btn,
+.admin-update-user-delete-cancel-btn,
+.admin-update-user-update-btn,
+.admin-update-user-update-cancel-btn {
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
 }
-.admin-update-user-delete-btn,.admin-update-user-update-btn{
+
+.admin-update-user-delete-btn,
+.admin-update-user-update-btn {
     background-color: red;
     color: white;
     font-weight: 700;
     border: none;
 }
-.admin-update-user-delete-btn:hover,.admin-update-user-update-btn:hover{
+
+.admin-update-user-delete-btn:hover,
+.admin-update-user-update-btn:hover {
     background-color: tomato;
 }
-.admin-update-user-delete-cancel-btn,.admin-update-user-update-cancel-btn{
+
+.admin-update-user-delete-cancel-btn,
+.admin-update-user-update-cancel-btn {
     border: 2px solid rgb(101, 101, 101);
     font-weight: 700;
 }
 
-.admin-update-user-delete-cancel-btn:hover,.admin-update-user-update-cancel-btn:hover{
+.admin-update-user-delete-cancel-btn:hover,
+.admin-update-user-update-cancel-btn:hover {
     background-color: rgb(140, 140, 140);
-    color: white;   
+    color: white;
 }
 
 
@@ -134,20 +153,66 @@
     height: fit-content;
 }
 
-.admin-update-profile-data{
+.admin-update-profile-data {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.admin-update-profile-data>div{
+
+.admin-update-profile-data>div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.admin-update-user-types{
+.admin-update-user-types {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.admin-update-user-types select {
+    border: 2px solid rgb(203, 203, 203);
+    height: 100%;
+    border-radius: 5px;
+}
+
+.admin-update-user-types>form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.admin-update-user-types>form button {
+    margin-bottom: 10px;
+    color: white;
+    background-color: tomato;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .admin-update-user-types button{
+        font-size: small;
+    }
+    .admin-update-user-types select {
+
+        height: 45%;
+        width: 98%;
+    }
+    .admin-update-user-types>form button {
+        height: 45%;
+        width: 98%;
+    }
+    .admin-update-user-main-content h3{
+        font-size: medium;
+    }
+    .admin-update-user-main-content h4{
+        font-size: small;
+    }
 }

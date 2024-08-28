@@ -8,10 +8,6 @@ import Products from "./components/Product/Products.jsx";
 import Search from "./components/Product/Search.jsx";
 import LoginSignup from "./components/LoginSignup/LoginSignUp.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentUser } from "./actions/UserAction.jsx";
-import { useAlert } from "react-alert";
-import Loader from "./components/layout/Loader/Loader.jsx";
-import { clearErrors } from "./reducers/userReducer/UserReducer.jsx";
 import store from "./store.jsx";
 import UserOptions from "./components/User/UserOptions.jsx";
 import Profile from "./components/User/Profile.jsx";
@@ -47,30 +43,31 @@ import AddAddress from "./components/Cart/AddAddress.jsx";
 import UpdateAddress from "./components/Cart/UpdateAddress.jsx";
 import ProfileAddress from "./components/User/Address.jsx"
 import ProfileReviews from "./components/User/ProfileReviews.jsx"
+import { getIsUserLogIn } from "./actions/UserAction.jsx"
+
+import Alert from "./Alert.jsx"
+
 function App() {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const [stripeApiKey, setStripeApiKey] = useState("");
-  const { error, loading, isauthenticate, user } = useSelector(state => state.user);
+  const { isauthenticate, user } = useSelector(state => state.user);
   const { products } = useSelector(state => state.products);
+  // const {}=useSelector(sta)
+
   useEffect(() => {
-    dispatch(getCartProducts());
+    dispatch(getIsUserLogIn())
     if (!products || products.length == 0) {
       dispatch(getProducts());
     }
-
     getStripeApiKey();
-    // Clear errors on component mount
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-  }, [dispatch, error, alert]);
+
+  }, [dispatch, getProducts]);
   useEffect(() => {
-    if (!user) {
-      dispatch(getCurrentUser());
+    if (user) {
+      dispatch(getCartProducts());
     }
-  }, [getCurrentUser, dispatch])
+  }, [dispatch, getCartProducts, user])
+
   async function getStripeApiKey() {
     try {
       axios.defaults.withCredentials = true;
@@ -122,6 +119,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
+      <Alert />
     </Router>
   );
 }

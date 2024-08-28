@@ -11,7 +11,6 @@ import {
 } from "../../actions/UserAction.jsx"
 import { useNavigate } from "react-router-dom"
 import { useAlert } from "react-alert"
-
 export default function AdminUpdateUser() {
     const dispatch = useDispatch()
     const alert = useAlert()
@@ -48,11 +47,11 @@ export default function AdminUpdateUser() {
         }
     }
     useEffect(() => {
-        if (!user) {
-            dispatch(adminGetUserDetails(_id))
-            user && setrole(user.role)
-        }
-    }, [dispatch])
+        user && setrole(user.role)
+    }, [dispatch, user])
+    useEffect(() => {
+        dispatch(adminGetUserDetails(_id))
+    }, [dispatch, adminGetUserDetails])
     const getRoleColor = (role) => {
         switch (role) {
             case 'admin':
@@ -149,7 +148,7 @@ export default function AdminUpdateUser() {
 
                                 <div className="admin-update-user-types">
 
-                                    <button onClick={(e) => {
+                                    <button className="admin-update-user-delete-btn" onClick={(e) => {
                                         setrole("blocked")
                                         setUpdateUserPop(true)
                                     }}>{user.isBlocked ? "Unblock" : "Block"} User</button>
@@ -167,7 +166,7 @@ export default function AdminUpdateUser() {
                                             <button>submit</button>
                                         </form>}
 
-                                    <button onClick={(e) => setDeleteUserPop(true)}>Delete User</button>
+                                    <button className="admin-update-user-delete-btn" onClick={(e) => setDeleteUserPop(true)}>Delete User</button>
                                 </div>
                             </Fragment>
                         }

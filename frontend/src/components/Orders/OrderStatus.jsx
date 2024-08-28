@@ -1,6 +1,4 @@
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
@@ -8,12 +6,11 @@ import Stack from '@mui/material/Stack';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 import TimerIcon from '@mui/icons-material/Timer';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import HailIcon from '@mui/icons-material/Hail';
-
+import "./OrderStatus.css"
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 22,
@@ -98,12 +95,11 @@ const steps = [
   { text: "Delivered", icon: <LocalShippingIcon /> }
 ];
 export default function CustomizedSteppers({ step }) {
-  
-  const status=["processing","shipped","out for delivery","delivered"]
-  console.log(step)
+
+  const status = ["processing", "shipped", "out for delivery", "delivered"]
   return (
     <Stack sx={{ width: '100%', padding: "20px" }} spacing={4}>
-      <Stepper alternativeLabel activeStep={status.indexOf(step)} connector={<ColorlibConnector />}>
+      <Stepper orientation={window.innerWidth < 600 ? "vertical" : "horizontal"} alternativeLabel={window.innerWidth < 600 ?false:"true"} activeStep={status.indexOf(step)} connector={<ColorlibConnector />}>
         {steps.map((label) => (
           <Step key={label.text}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>{label.text}</StepLabel>

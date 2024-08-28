@@ -14,7 +14,7 @@ export default function Footer() {
 
             </div>
             <div className="middle-part">
-                <h1>Epic Eccentials</h1>
+                <h1>Epic Essentials</h1>
                 <p>High quality is our first  priority</p>
                 <span>© EpicEcentials 2024 by BhanuPattemz</span>
             </div>

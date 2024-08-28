@@ -26,7 +26,7 @@ module.exports.register = wrapAsync(async (req, res, next) => {
         req.logIn(newUser, (err) => {
             if (err) return next(err);
             res.status(200).json({
-                success: true,
+                success: "user register success",
                 user: newUser,
                 isauthenticate: true
             });
@@ -38,7 +38,7 @@ module.exports.register = wrapAsync(async (req, res, next) => {
 
 module.exports.login = (req, res) => {
     res.status(200).json({
-        sucess: true,
+        success: "login user success",
         user: req.user,
         isauthenticate: true
     })
@@ -48,8 +48,7 @@ module.exports.logout = (req, res) => {
     req.logOut((err) => {
         if (err) return next(err);
         res.status(200).json({
-            success: true,
-            message: "Logged out successfully"
+            success: "Logout successfully"
         });
     });
 
@@ -60,10 +59,7 @@ module.exports.createPasswordToken = wrapAsync(async (req, res) => {
     const { email } = req.body
     const userData = await User.findOne({ email })
     if (!userData) {
-        res.status(401).json({
-            success: flase,
-            message: "user not found"
-        })
+        throw new ExpressError("user not found", 401)
     }
     const user = await User.findOneAndUpdate({ email }, {
         resetPasswordToken: token,
@@ -82,14 +78,10 @@ module.exports.createPasswordToken = wrapAsync(async (req, res) => {
     const data = await sendMail(options)
     if (data) {
         res.status(200).json({
-            success: true,
-            message: "message sent"
+            success: "mail sent",
         })
     } else {
-        res.status(400).json({
-            success: false,
-            message: "message not sent"
-        })
+        throw new ExpressError("mail not sent", 400)
     }
 })
 
@@ -106,17 +98,17 @@ module.exports.resetPassword = wrapAsync(async (req, res) => {
     });
 
     if (!user) {
-        return res.status(400).json({ message: 'Invalid or expired token' });
+        throw new ExpressError('Invalid or expired token', 400)
     }
 
     user.setPassword(newpassword, async (err) => {
-        if (err) return res.status(500).json({ message: 'Error setting password' });
+        if (err) throw new ExpressError('Error setting password', 500)
 
         user.resetPasswordToken = undefined;
         user.resetPasswordExpire = undefined;
         await user.save();
 
-        res.status(200).json({ message: 'Password reset successful' });
+        res.status(200).json({ success: 'Password reset successful' });
     });
 });
 
@@ -134,17 +126,31 @@ module.exports.updatePassword = wrapAsync(async (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            res.send('successfully change password')
+            res.status(200).json({ success: 'successfully change password' });
         }
     })
 })
 
 module.exports.profile = (req, res) => {
     res.status(200).json({
-        success: true,
         user: req.user,
         isauthenticate: true
     })
+}
+
+module.exports.isUserIn = (req, res) => {
+    if (req.user) {
+        res.status(200).json({
+            user: req.user,
+            isauthenticate: true
+        })
+    } else {
+        res.status(200).json({
+            user: null,
+            isauthenticate: false
+        })
+    }
+
 }
 module.exports.deleteUser = wrapAsync(async (req, res) => {
     await User.findOneAndDelete({ _id: req.user._id });
@@ -152,8 +158,7 @@ module.exports.deleteUser = wrapAsync(async (req, res) => {
         if (err) return next(err);
         res.clearCookie('session');
         res.status(200).json({
-            success: true,
-            message: "User deleted and logged out successfully"
+            success: "User deleted and logged out successfully"
         });
     });
 
@@ -188,9 +193,8 @@ module.exports.updateUser = wrapAsync(async (req, res) => {
         );
     }
     req.user = updatedUser
-    console.log(req.user)
     res.status(200).json({
-        success: true,
+        success: "update user success",
         user: updatedUser
     });
 });
@@ -202,7 +206,7 @@ module.exports.addAddress = wrapAsync(async (req, res) => {
     user.shippingInfo.push(req.body)
     await user.save()
     res.status(200).json({
-        success: true,
+        success: "new address added success",
         user
     })
 })
@@ -223,7 +227,7 @@ module.exports.updateAddress = wrapAsync(async (req, res) => {
     shippingInfo.pincode = pincode || shippingInfo.pincode
     await user.save();
     res.status(200).json({
-        success: true,
+        success: "address updated success",
         user
     })
 })
@@ -236,7 +240,21 @@ module.exports.removeAddress = wrapAsync(async (req, res) => {
     );
     await user.save()
     res.status(200).json({
-        success: true,
+        success: "address deleted",
+        user
+    })
+})
+
+module.exports.makeadmin = wrapAsync(async (req, res) => {
+    const { _id } = req.params
+    const user = await User.findByIdAndUpdate(
+        _id,
+        { role: "admin" },
+        { new: true, runValidators: true }
+    );
+    await user.save()
+    res.status(200).json({
+        success: "address role changed",
         user
     })
 })
@@ -250,11 +268,13 @@ module.exports.authenticateUser = wrapAsync(async (req, res, next) => {
             return next(err);
         }
         if (!user) {
-            return next(new ExpressError(info.message,401));
+            return next(new ExpressError(info.message, 401));
         }
+
         req.logIn(user, (err) => {
             if (err) {
                 return next(err);
+
             }
             return next();
         });

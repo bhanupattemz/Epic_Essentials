@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 module.exports.AllUserOrders = wrapAsync(async (req, res) => {
     const orders = await Order.find({ user: req.user._id })
     res.status(200).json({
-        success: true,
+        success: null,
         orders
     })
 })
@@ -16,7 +16,7 @@ module.exports.getSingleOrder = wrapAsync(async (req, res) => {
     const { _id } = req.params
     const singleOrder = await Order.findById(_id).populate('orderItems.product').exec();
     res.status(200).json({
-        success: true,
+        success: null,
         order: singleOrder
     })
 })
@@ -37,8 +37,7 @@ module.exports.createOrder = wrapAsync(async (req, res) => {
     await order.save();
     const orders = await Order.find()
     res.status(200).json({
-        success: true,
-        message: "Order created successfully",
+        success: "Order created successfully",
         order: orders
     });
 });
@@ -60,7 +59,7 @@ module.exports.updateOrder = wrapAsync(async (req, res) => {
     const updatedOrder = await Order.findByIdAndUpdate(_id, req.body, { new: true, runValidators: true });
     const orders = await Order.find()
     res.status(200).json({
-        success: true,
+        success: "Order updated successfully",
         orders
     });
 });
@@ -73,7 +72,7 @@ module.exports.cancelOrder = wrapAsync(async (req, res) => {
     }
     const updatedOrder = await Order.findByIdAndUpdate(_id, {orderStatus:"cancelled"}, { new: true, runValidators: true });
     res.status(200).json({
-        success: true,
+        success: "order cancel successfully",
         order:updatedOrder
     });
 })
@@ -83,7 +82,7 @@ module.exports.deleteOrder = wrapAsync(async (req, res) => {
     const deletedOrder = await Order.findByIdAndDelete(_id)
     const orders = await Order.find()
     res.status(200).json({
-        success: true,
+        success: "Order delete success",
         orders
     })
 })

@@ -15,20 +15,23 @@ export default function Review({ review, user_id, setisReviewChanged }) {
                     <img src={review.user.avatar[0].url} alt="profile-avatar" /> :
                     <img src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1721047699/Epic%20Essentials/pjlmvwy41tdhblpskhnj.png" alt="profile-avatar" />
                 }
-
-                <h4>{review.user.username}</h4>
                 <div>
+                    <h4>{review.user.username}</h4>
+
                     <StarRatings
                         rating={review.rating}
                         starDimension="20px"
                         starRatedColor="gold"
                         starSpacing="0px" />
+
+
                 </div>
-
             </div>
+            <div className="review-card-comment-div">
 
-            <p>{review.comment}</p>
-            {user_id === review.user._id && <button onClick={deleteReviewHandler}>delete review</button>}
+                <p ><b>Comment: </b><span>{review.comment}</span></p>
+            </div>
+            {user_id === review.user._id && <button className="review-card-delete-review-btn" onClick={deleteReviewHandler}>Delete Review</button>}
 
         </div>
     )

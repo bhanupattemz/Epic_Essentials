@@ -21,7 +21,7 @@ export default function Profile() {
                         </section>
                         <section className="address-page-content">
                             <div>
-                                <h2>Manage Addresses</h2>
+                                <h1 className="manage-address-page-heading">Manage Addresses</h1>
                             </div>
                             <div className="address-page-content-information">
                                 <div className="address-page-add-address" onClick={()=>navigate("/address/new")}>

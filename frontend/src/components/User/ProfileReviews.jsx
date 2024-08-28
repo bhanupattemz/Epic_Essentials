@@ -23,21 +23,30 @@ export default function ProfileReviews() {
         <Fragment>
             {loading ? <Loader /> :
                 <Fragment>
-                    <main className="profile-reviews-page-main">
+                    <main className="profile-reviews-page-main profile-page-main">
                         <MetaData title={`${user.username} --Epic Essentials`} />
                         <section className="profile-reviews-page-side-bar">
                             <SideBar curent_place={"review"} />
                         </section>
+                        
                         <section className="profile-reviews-page-content">
-                            <h2>My Reviews</h2>
+                            <h1>My Reviews</h1>
+                            
                             <div className="profile-reviews-page-container">
-                                {reviews  && reviews.map((review, index) => {
+                            {reviews.length>0?reviews  && reviews.map((review, index) => {
                                     return (
                                         <div key={index} onClick={()=>navigate(`/products/${review.product._id}`)} className="profile-review-page-container">
                                             <ReviewShow review={review} />
                                         </div>
                                     )
-                                })}
+                                }):
+                                <div className="my-reviews-page-no-reviews-conatainer">
+                                    <img className="my-reviews-page-no-reviews-img" src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724818627/Epic%20Essentials/kn88b0zvrvxz2w8k9trs.jpg" alt="reviews-img" />
+                                    <p>You have not review any product yet!</p>
+                                    
+                                </div>
+                                }
+                                
                             </div>
                         </section >
                     </main>

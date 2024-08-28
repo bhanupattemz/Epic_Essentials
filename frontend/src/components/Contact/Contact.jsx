@@ -1,74 +1,67 @@
 import "./Contact.css";
 import { useEffect, useState, useRef } from "react";
-
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { SiEslgaming } from "react-icons/si";
+import MetaData from "../layout/MetaData";
 export default function Contact() {
-    const [imgNo, setImgNo] = useState(0);
-    const leftbtn = useRef(null);
-    const rightbtn = useRef(null);
-    const carouselRef = useRef(null);
-
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    const carouselImg = [
-        "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723467716/Epic%20Essentials/web%20%20images/huo9hxlsfqjfpzn1rfcc.jpg",
-        "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723468886/Epic%20Essentials/web%20%20images/ochox8hla8nitr2umrsm.jpg",
-        "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723471507/Epic%20Essentials/web%20%20images/w1d4ra8xx6iuorpw4mxf.jpg"
-    ];
-    const len = carouselImg.length;
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setImgNo(no => (no + 1) % len);
-        }, 5000);
-
-        return () => clearInterval(intervalId);
-    }, []);
-
-    useEffect(() => {
-        const wrapper = carouselRef.current;
-        if (wrapper) {
-            wrapper.style.transform = `translateX(-${imgNo * 100}%)`;
-        }
-    }, [imgNo]);
-
-    const carouselLeftbtnHandler = async () => {
-        setImgNo(no => (no - 1 + len) % len);
-        leftbtn.current.classList.add("carousel-btn-click");
-        await sleep(300);
-        leftbtn.current.classList.remove("carousel-btn-click");
-    };
-
-    const carouselRightbtnHandler = async () => {
-        setImgNo(no => (no + 1) % len);
-        rightbtn.current.classList.add("carousel-btn-click");
-        await sleep(300);
-        rightbtn.current.classList.remove("carousel-btn-click");
-    };
 
     return (
-        <main className="home-page-main">
-            <section className="home-page-carousel">
+        <main className="contact-page-main">
+            <MetaData title="contact-Epic Essentials" />
+            <section className="contact-page-main-container">
+                <div className="contact-page-img-container">
+                    <div>
+                        <img className="contact-page-img" src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724505466/Epic%20Essentials/pxrefgfuezad1izbhtpm.png" alt="logo-img" />
+                        <h1>Contact Us</h1>
+                    </div>
 
-                <div className="carousel-wrapper" ref={carouselRef}>
-                    {carouselImg.map((item, index) => (
-                        <div className="home-img-item" key={index} style={{ opacity: imgNo === index ? 1 : 0 }}>
-                            <img src={item} alt="carousel-image" />
+                    <div>
+                        <p>
+                            Use the contact form for all information requests or contact us directly using the contact information below.
+                        </p>
+                    </div>
+
+                </div>
+                <div className="contact-page-data-container">
+                    <div>
+                        <SiEslgaming />
+                        <div>
+                            <h2>
+                                ABOUT US
+                            </h2>
+                            <p>abcd</p>
                         </div>
-                    ))}
-                </div>
-                <div className="home-img-item-indi">
-                    {carouselImg.map((_, index) => (
-                        <div key={index} className={imgNo === index ? "active" : ""}></div>
-                    ))}
-                </div>
-                <div className="home-page-carousel-btn">
-                    <div className="left-btn" onClick={carouselLeftbtnHandler} ref={leftbtn}></div>
-                    <div className="right-btn" onClick={carouselRightbtnHandler} ref={rightbtn}></div>
+                    </div>
+                    <div>
+
+                        <FaPhoneAlt />
+
+                        <div>
+                            <h2>
+                                PHONE
+                            </h2>
+                            <p>8555860089</p>
+                        </div>
+                    </div>
+                    <div>
+
+                        <FaLocationDot />
+
+                        <div>
+                            <h2>OUR LOCATION</h2>
+                            <p>ELLORA HOSTEL/ROOM NO-137 JNTUA COLLEGE OF ENGINEERING ANANTAPUR Anantapur Andhra Pradesh India-515002</p>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <h1>Hello</h1>
+            <section className="contact-page-upper-container">
+
+            </section>
+            <section className="contact-page-lower-container">
+
+            </section>
+
         </main>
     );
 }

@@ -3,18 +3,16 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { useDispatch, useSelector } from "react-redux";
 import { userUpdate } from "../../actions/UserAction";
-import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader"
 import { useNavigate } from "react-router-dom"
 import PersonIcon from '@mui/icons-material/Person';
 import "./UpdateProfile.css"
-
+import MetaData from "../layout/MetaData";
 export default function UpdateProfile() {
     const first = useRef(0);
     const dispatch = useDispatch();
-    const alert = useAlert();
     const navigate = useNavigate();
-    const { error, loading, isauthenticate, user ,isUpdated} = useSelector(state => state.user);
+    const { error, loading, isauthenticate, user, isUpdated } = useSelector(state => state.user);
     const [avatar, setAvatar] = useState();
     const [avatarPreview, setAvatarPreview] = useState("");
     const [updateUser, setUpdateUser] = useState({
@@ -51,18 +49,17 @@ export default function UpdateProfile() {
             setAvatarPreview(user.avatar[0].url);
             first.current += 1;
         }
-        if(isUpdated){
+        if (isUpdated) {
             navigate("/profile")
         }
-        if (error) {
-            alert.error(error);
-        }
-    }, [alert, error, user]);
+
+    }, [user]);
 
     return (
         <Fragment>
             {loading ? <Loader /> :
                 <Fragment>
+                    <MetaData title="Update Profile -- Epic Essentials" />
                     <main className="update-profile-main">
                         <div className="update-container">
                             <div className="update-box">

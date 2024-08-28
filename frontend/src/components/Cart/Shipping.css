@@ -13,6 +13,7 @@
     background-color: white;
     border-radius: 20px;
     margin-bottom: 30px ;
+    box-shadow: 0.5px 0.5px 7px rgb(203, 203, 203), -0.5px -0.5px 7px rgb(203, 203, 203);
 }
 .shipping-radio-box{
     width: 100%;
@@ -23,7 +24,7 @@
 }
 .shipping-page-add-address{
     width: 80%;
-    border: 2px solid black;
+    border:2px solid rgb(204, 204, 204);
     border-radius: 10px;
     padding: 0px 10px 5px 10px;
     color: blue;
@@ -38,12 +39,13 @@
     padding: 7px 10px;
     margin-bottom: 30px;
     border-radius: 5px;
+    border: 2px solid rgb(204, 204, 204);
 }
 /* AddressShow */
 
 .showAddress-container {
     width: 80%;
-    border: 2px solid black;
+    border: 2px solid rgb(204, 204, 204);
     border-radius: 10px;
     margin: 20px;
     padding: 10px;

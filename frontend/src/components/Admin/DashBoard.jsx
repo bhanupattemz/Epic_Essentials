@@ -9,6 +9,7 @@ import Loader from "../layout/Loader/Loader.jsx"
 import { adminGetAllOrders } from "../../actions/Orderactions.jsx"
 import { adminGetAllUsers } from "../../actions/UserAction.jsx"
 import {adminGetAllProucts} from "../../actions/ProductAction.jsx"
+import MetaData from "../layout/MetaData.jsx"
 export default function DashBoard() {
     const dispatch = useDispatch()
     const { products, loading } = useSelector(state => state.products)
@@ -24,11 +25,12 @@ export default function DashBoard() {
         }
         if (usersCount === 0) {
             dispatch(adminGetAllUsers())
-            dispatch(adminGetAllProucts())
         }
-    }, [dispatch, adminGetAllOrders, adminGetAllUsers])
+        dispatch(adminGetAllProucts())
+    }, [dispatch, adminGetAllOrders, adminGetAllUsers,adminGetAllProucts])
     return (
         <Fragment>
+              <MetaData title="Admin Dashboard -- Epic Essentials" />
             <main className="dashboard-main">
                 <section className="dashboard-sidebar">
                     <SideBar />
@@ -37,7 +39,7 @@ export default function DashBoard() {
                     {loading ? <Loader /> :
                         <Fragment>
                             <div>
-                                <h2>Dashboard</h2>
+                                <h1 className="admin-dashboard-heading">Dashboard</h1>
                             </div>
                             <div className="dashboard-details">
                                 <div className="dashboard-total-amount">

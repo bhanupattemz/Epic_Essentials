@@ -32,16 +32,17 @@ import {
     USER_ADDRESS_SUCCESS,
     CLEAR_ERRORS
 } from '../../constants/Constants';
+import { act } from 'react';
 
 const initialState = {
-    user:null,
+    user: null,
     loading: false,
     error: null,
-    isauthenticate:false,
-    isUpdated:false,
-    message:"",
-    isPasswordUpdated:false,
-    success:false
+    isauthenticate: false,
+    isUpdated: false,
+    message: "",
+    isPasswordUpdated: false,
+    success: null
 };
 
 const userSlice = createSlice({
@@ -51,21 +52,26 @@ const userSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (builder) => {
         builder
             .addCase(LOGIN_REQUEST, (state) => {
                 state.loading = true;
                 state.user = null;
+
             })
             .addCase(LOGIN_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.user = action.payload.user;
-                state.isauthenticate=action.payload.isauthenticate
+                state.isauthenticate = action.payload.isauthenticate;
+                state.success = action.payload.success;
             })
             .addCase(LOGIN_FAIL, (state, action) => {
                 state.loading = false;
-                state.user=null
+                state.user = null
                 state.error = action.payload;
             })
             .addCase(REGISTER_REQUEST, (state) => {
@@ -75,11 +81,12 @@ const userSlice = createSlice({
             .addCase(REGISTER_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.user = action.payload.user;
-                state.isauthenticate=action.payload.isauthenticate
+                state.isauthenticate = action.payload.isauthenticate
+                state.success = action.payload.success
             })
             .addCase(REGISTER_FAIL, (state, action) => {
                 state.loading = false;
-                state.user=null
+                state.user = null
                 state.error = action.payload;
             }).addCase(CURRENT_USER_REQUEST, (state) => {
                 state.loading = true;
@@ -88,42 +95,44 @@ const userSlice = createSlice({
             .addCase(CURRENT_USER_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.user = action.payload.user;
-                state.isauthenticate=action.payload.isauthenticate 
+                state.isauthenticate = action.payload.isauthenticate
             })
             .addCase(CURRENT_USER_FAIL, (state, action) => {
                 state.loading = false;
-                state.user=null
+                state.user = null
             }).addCase(LOGOUT_REQUEST, (state) => {
                 state.loading = true;
             })
             .addCase(LOGOUT_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.user = null;
-                state.isauthenticate=false
+                state.isauthenticate = false;
+                state.success = action.payload.success
             })
             .addCase(LOGOUT_FAIL, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             }).addCase(UPDATE_USER_REQUEST, (state) => {
-                state.isUpdated=false;
+                state.isUpdated = false;
                 state.loading = true;
             })
             .addCase(UPDATE_USER_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.user = action.payload.user;
-                state.isUpdated=true
+                state.isUpdated = true
+                state.success = action.payload.success
             })
             .addCase(UPDATE_USER_FAIL, (state, action) => {
                 state.loading = false;
-                state.error=action.payload
-                state.isUpdated=false
+                state.error = action.payload
+                state.isUpdated = false
             }).addCase(UPDATE_PASSWORD_REQUEST, (state) => {
                 state.loading = true;
             })
             .addCase(UPDATE_PASSWORD_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.message = action.payload;
-                state.isPasswordUpdated=true;
+                state.success = action.payload.success
+                state.isPasswordUpdated = true;
             })
             .addCase(UPDATE_PASSWORD_FAIL, (state, action) => {
                 state.loading = false;
@@ -134,19 +143,19 @@ const userSlice = createSlice({
             .addCase(DELETE_USER_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.user = null;
-                state.message=action.payload.message;
-                state.isauthenticate=false;
+                state.success = action.payload.success;
+                state.isauthenticate = false;
             })
             .addCase(DELETE_USER_FAIL, (state, action) => {
                 state.loading = false;
-                state.error=action.payload
+                state.error = action.payload
             }).addCase(FORGOT_PASSWORD_REQUEST, (state) => {
                 state.loading = true;
             })
             .addCase(FORGOT_PASSWORD_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.message = action.payload.message;
-                state.success=true
+                state.success = action.payload.success
+                state.success = true
             })
             .addCase(FORGOT_PASSWORD_FAIL, (state, action) => {
                 state.loading = false;
@@ -156,8 +165,8 @@ const userSlice = createSlice({
             })
             .addCase(RESET_PASSWORD_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.message = action.payload.message;
-                state.success=true
+                state.success = action.payload.success
+                state.success = true
             })
             .addCase(RESET_PASSWORD_FAIL, (state, action) => {
                 state.loading = false;
@@ -167,8 +176,8 @@ const userSlice = createSlice({
             })
             .addCase(USER_ADDRESS_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.user=action.payload.user
-                state.success=true
+                state.user = action.payload.user
+                state.success = action.payload.success
             })
             .addCase(USER_ADDRESS_FAIL, (state, action) => {
                 state.loading = false;
@@ -178,6 +187,6 @@ const userSlice = createSlice({
 });
 
 
-export const { clearErrors } = userSlice.actions;
+export const { clearErrors, clearSuccess } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -8,15 +8,14 @@ const mongoose = require('mongoose');
 module.exports.getAllReviews = wrapAsync(async (req, res) => {
     const reviews = await Review.find({}).populate("user").populate("product")
     res.status(200).json({
-        success: true,
-        message: "All reviews",
+        success: null,
         reviews
     })
 })
 module.exports.getUserReviews = wrapAsync(async (req, res) => {
     const reviews = await Review.find({user:req.user._id}).populate("product")
     res.status(200).json({
-        success: true,
+        success: null,
         review:reviews
     })
 })
@@ -41,7 +40,7 @@ module.exports.createReview = wrapAsync(async (req, res) => {
     await product.save()
     const reviews = await Review.find()
     res.status(200).json({
-        success: true,
+        success: "Review Created Success",
         review: reviews
     })
 })
@@ -57,8 +56,7 @@ module.exports.updateReview = wrapAsync(async (req, res) => {
     product.rating = (product.rating * product.review.length - review.rating + updatedReview.rating) / product.review.length
     await product.save()
     res.status(200).json({
-        sccess: true,
-        message: "updated review sccessfully",
+        success: "updated review sccessfully",
         review: updatedReview
     })
 })
@@ -75,8 +73,7 @@ module.exports.deleteReview = wrapAsync(async (req, res) => {
     }
     await product.save()
     res.status(200).json({
-        success: true,
-        message: "deleted review Successfully",
+        success:"deleted review Successfully",
         review
     })
 })
@@ -85,7 +82,7 @@ module.exports.getReview = wrapAsync(async (req, res) => {
     const { review_id } = req.params
     const review = await Review.findOne({ product: review_id, user: req.user._id })
     res.status(200).json({
-        success: true,
+        success: null,
         review
     })
 })
@@ -107,13 +104,13 @@ module.exports.searchReview = wrapAsync(async (req, res) => {
         }
         console.log(review)
         return res.status(200).json({
-            success: true,
+            success: null,
             reviews: review
         });
     }
 
     return res.status(200).json({
-        success: true,
+        success: null,
         reviews: review
     });
 });

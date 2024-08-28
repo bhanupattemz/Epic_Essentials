@@ -4,6 +4,9 @@
     flex-direction: row;
     justify-content: center;
 }
+.manage-address-page-heading{
+    text-align: center;
+}
 .address-page-side-bar{
     width: 20%;
     margin: 1%;
@@ -12,7 +15,9 @@
 
 .address-page-content{
     width: 65%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    background-color: white;
+    box-shadow: 1px 1px 3px rgb(179, 179, 179), -1px -1px 3px rgb(179, 179, 179);
     margin: 1%;
     border-radius: 5px;
 }
@@ -35,7 +40,7 @@
 }
 .address-page-add-address{
     width: 80%;
-    border: 2px solid black;
+    border: 2px solid rgb(204, 204, 204);
     border-radius: 10px;
     padding: 0px 10px 5px 10px;
     color: blue;
@@ -45,7 +50,12 @@
 .address-page-add-address svg{
     transform: translateY(5px);
 }
-
+@media only screen and (max-width: 1023px),
+(max-device-width:1023px) {
+    .address-page-side-bar {
+        width: 30%;
+    }
+}
 @media only screen and (max-width: 600px),
 (max-device-width:600px) {
     .address-page-content h2{
@@ -53,10 +63,7 @@
         margin-left: 0px;
         padding-bottom: 10px;
     }
-}
-@media only screen and (max-width: 1023px),
-(max-device-width:1023px) {
-    .address-page-side-bar {
-        width: 30%;
+    .address-page-content{
+        box-shadow: none;
     }
 }

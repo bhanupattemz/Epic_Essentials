@@ -5,7 +5,9 @@
     flex-direction: column;
     align-items: center;
 }
-
+.payment-container h1{
+    color: #5198fb;
+}
 .payment-page-payment-section {
     width: 70%;
     background-color: white;
@@ -118,11 +120,20 @@
     font-size: medium;
     outline: none;
 }
+@media only screen and (max-width: 1000px),
+(max-device-width:1000px) {
+    .css-eszixf-MuiStack-root{
+        width: 90% !important;
+    }
+    .payment-page-payment-section{
+        width: 80%;
+    }
+}
 @media only screen and (max-width: 600px),
 (max-device-width:600px) {
     .payment-page-payment-section {
         flex-direction: column;
-        width: 90%;
+        width: 95%;
     }
 
     .payment-page-payment-section>div {
@@ -134,5 +145,8 @@
     }
     .payment-page-card-img {
         transform: translateX(-3%) translateY(-15vh);
+    }
+    .payment-page-previous-btn{
+        width: 50% !important;
     }
 }

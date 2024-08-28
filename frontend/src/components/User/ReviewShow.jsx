@@ -30,7 +30,7 @@ export default function ReviewShow({ review }) {
     }
     return (
         <Fragment>
-            <Dialog open={open} onClose={() => setOpen(false)} >
+            <Dialog open={open} onClose={() => setOpen(false)}  onClick={(event) => event.stopPropagation()} >
                 <DialogTitle>Review</DialogTitle>
                 <DialogContent>
                     <div>
@@ -59,7 +59,7 @@ export default function ReviewShow({ review }) {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button  onClick={() => setOpen(false)}>Cancel</Button>
                     <Button type="submit" onClick={updateReviewHandler}>Submit</Button>
                 </DialogActions>
             </Dialog>
@@ -70,7 +70,7 @@ export default function ReviewShow({ review }) {
             </div>
 
             <div className='profile-review-page-comment-container'>
-                <h4>{review.product.name}</h4>
+                <h2>{review.product.name}</h2>
                 <StarRatings
                     rating={review.rating}
                     starDimension="20px"

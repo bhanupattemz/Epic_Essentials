@@ -46,42 +46,42 @@ export default function Profile() {
                         </section>
                         <section className="profile-page-content">
                             <div>
-                                <h2>Profile Information</h2>
+                                <h1 className="profile-page-heading">Profile Information</h1>
                             </div>
                             <div className="profile-page-content-information">
                                 <div>
-                                    <h3>Personal Information</h3>
+                                    <h2>Personal Information</h2>
                                     <div className="profile-page-information-content">
                                         <p>{user.username} {`(${user._id})`}</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3>Email Address</h3>
+                                    <h2>Email Address</h2>
                                     <div className="profile-page-information-content">
                                         <p >{user.email}</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3>Role</h3>
+                                    <h2>Role</h2>
                                     <div className="profile-page-information-content">
                                         <p>{user.role}</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3>Join On</h3>
+                                    <h2>Join On</h2>
                                     <div className="profile-page-information-content">
                                         <p>{user.createdAt.slice(0, 10)}</p>
                                     </div>
                                 </div>
                                 <div className="profile-btns-container">
-                                    <a href="/UpdateProfile"  style={{ textDecoration: "None" }}>Edit Profile</a>
-                                    <a   style={{ textDecoration: "None" ,color:"red"}} onClick={(e) => {
+                                    <div onClick={()=>navigate("/UpdateProfile")} >Edit Profile</div>
+                                    <div onClick={(e) => {
                                         e.preventDefault();
                                         setDeleteUserPop(true)
                                     }}
-                                    >Delete Account</a>
-                                    <a className="profile-btn-changepassword" 
-                                    href={`/password/update/${user._id}`} style={{ textDecoration: "None" }}>Change Password</a>
+                                    >Delete Account</div>
+                                    <div className="profile-btn-changepassword" onClick={()=>navigate(`/password/update/${user._id}`)}
+                                       >Change Password</div>
                                 </div>
                             </div>
 

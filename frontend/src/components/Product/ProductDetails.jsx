@@ -1,14 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { getProductDetails } from "../../actions/ProductAction";
 import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import StarRatings from 'react-star-ratings';
 import Review from "./Review";
-import { clearErrors } from "../../reducers/productReducer/productDetailsReducer";
-import { clearErrors as reviewClearErrors } from "../../reducers/reviewReducer/ReviewReducer"
 import { addCartProducts } from "../../actions/CartAction";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -36,12 +33,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import "./ProductDetails.css";
 export default function ProductDetails() {
     const dispatch = useDispatch();
-    const alert = useAlert();
     const { id } = useParams();
     const { product, loading, error, success } = useSelector((state) => state.productDetails);
     const { products: similarProducts } = useSelector(state => state.products);
     const { user } = useSelector(state => state.user);
-    const { review, error: reviewError } = useSelector(state => state.review);
+    const { review } = useSelector(state => state.review);
     const [quantity, setQuantity] = useState(1);
     const [open, setOpen] = useState(false);
     const [rating, setRating] = useState(0);
@@ -73,22 +69,18 @@ export default function ProductDetails() {
         setOpen(false);
         if (review) {
             dispatch(updatereview({ rating, comment }, review._id));
-            if (!reviewError) {
-                alert.success("review Updated")
-            }
+
         } else {
             console.log({ rating, comment })
             dispatch(createreview({ rating, comment }, id));
-            if (!reviewError) {
-                alert.success("Review submitted")
-            }
+
         }
         setisReviewChanged(!isReviewChanged)
     };
     const cartSubmitHandler = async (e) => {
         e.preventDefault();
         await dispatch(addCartProducts(id, quantity));
-        alert.success("ADDED TO Cart")
+
         navigate("/cart")
     };
     useEffect(() => {
@@ -100,20 +92,13 @@ export default function ProductDetails() {
         }
     }, [user])
     useEffect(() => {
-        if (error) {
-            alert.error(error);
-            dispatch(clearErrors());
-        }
-        if (reviewError) {
-            alert.error(reviewError);
-            dispatch(reviewClearErrors());
-        }
+
         dispatch(getProductDetails(id));
         dispatch(getProducts({ category: product.category }))
-    }, [error, id, alert, isReviewChanged, reviewError, getProducts]);
-    useEffect(()=>{
+    }, [id, isReviewChanged, getProducts]);
+    useEffect(() => {
         dispatch(getProducts({ category: product.category }))
-    },[getProducts,dispatch,product])
+    }, [getProducts, dispatch, product])
     const guaranteesItems = [
         { name: "7 days Replacement", img: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723919515/Epic%20Essentials/zuw561uskzkvcyvft3bj.png" },
         { name: "Fast Delivery", img: "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723919626/Epic%20Essentials/jiecgpxa3uqhvh2klk0h.jpg" },
@@ -154,11 +139,11 @@ export default function ProductDetails() {
                                 </div>
                             </div>
                             <div className="productdetails-main-img-container">
-                                <img className="productdetails-main-img" src={product.images[imgNo].url} alt={`${product.name}-img`} />
+                                <img className="productdetails-main-img" src={product.images[imgNo]?.url} alt={`${product.name}-img`} />
                             </div>
                         </div>
                         <div className="productdetails-details">
-                            <h1>{product.name}</h1>
+                            <h1 className="product-details-main-img">{product.name}</h1>
                             <div className="details-rating">
                                 <StarRatings
                                     rating={product.rating}
@@ -240,7 +225,7 @@ export default function ProductDetails() {
                     </section>
                     <section className="productdetails-page-details-section">
                         <div className="product-details-guaranteesItems-container">
-                            <h3>Top Offers & Guarantees</h3>
+                            <h2>Top Offers & Guarantees</h2>
                             <div className="product-details-guaranteesItems">
                                 {guaranteesItems.map((item) => {
                                     return (
@@ -253,13 +238,13 @@ export default function ProductDetails() {
                             </div>
                         </div>
                         <div className="product-details-discription">
-                            <h3>Product Description</h3>
+                            <h2>Product Description</h2>
                             <p>{product.discription}</p>
                         </div>
                         {product.specifications &&
-                            <div className="product-details-specifications-container">
-                                <h3>Specifications</h3>
-                                {specificationOpen &&
+                            <div className={`product-details-specifications-container ${specificationOpen ? "product-details-specifications-open" : "product-details-specifications-close"}`}>
+                                <h2>Specifications</h2>
+                                <div>
                                     <TableContainer component={Paper}>
                                         <Table aria-label="simple table">
                                             <TableBody>
@@ -277,28 +262,37 @@ export default function ProductDetails() {
                                             </TableBody>
                                         </Table>
                                     </TableContainer>
-                                }
-
+                                </div>
                             </div>
 
                         }
-                        <div className="product-details-content-reducer-container" onClick={() => setSpecificationOpen(val => !val)}>{specificationOpen ?
-                            <p><KeyboardDoubleArrowUpIcon /><span> Show Less</span></p> :
-                            <p><KeyboardDoubleArrowDownIcon /><span>Show More</span></p>}</div>
+
                     </section>
+                    {!specificationOpen &&
+                        <div className="product-details-content-hide">
+
+                        </div>
+                    }
+                    <div className="product-details-content-reducer-container" onClick={() => setSpecificationOpen(val => !val)}>
+                        <div>
+                            {specificationOpen ?
+                                <p><span><KeyboardDoubleArrowUpIcon /></span><span> Show Less</span></p> :
+                                <p><span><KeyboardDoubleArrowDownIcon /></span><span>Show More</span></p>}
+                        </div>
+                    </div>
                     <section className="reviews">
                         <div className="reviews-heading">
-                            <h3>Reviews</h3>
+                            <h2 className="product-details-review-heading">Reviews</h2>
                         </div>
                         <div className="allReviews">
                             {product && product.review && product.review.length !== 0 ? product.review.map((item) => (
                                 <Review key={item._id} review={item} user_id={user && user._id} setisReviewChanged={{ setisReviewChanged, isReviewChanged }} />
-                            )) : <h4>No Reviews</h4>}
+                            )) : <h5>No Reviews</h5>}
                         </div>
                     </section>
                     {similarProducts &&
                         <section className="product-details-similar-products">
-                            <h3>Similar Product</h3>
+                            <h2>Similar Product</h2>
                             <div>
                                 {similarProducts.map((item, index) => {
                                     return (
@@ -310,7 +304,7 @@ export default function ProductDetails() {
                     }
                     {recentProducts &&
                         <section className="product-details-recent-products">
-                            <h3>Recent Product</h3>
+                            <h2>Recent Product</h2>
                             <div>
                                 {recentProducts.map((item, index) => {
                                     return (

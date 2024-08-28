@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserOrders } from "../../actions/Orderactions";
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import LaunchIcon from '@mui/icons-material/Launch';
-
+import { useNavigate } from "react-router-dom"
+import "./OrderDetails.css"
+import MetaData from "../layout/MetaData";
 export default function Orders() {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const { orders: totalOrders, loading } = useSelector(state => state.order);
     const [orders, setOrders] = useState(totalOrders)
     useEffect(() => {
@@ -53,7 +56,7 @@ export default function Orders() {
             headerName: "Action",
             flex: 0.5,
             renderCell: (params) => (
-                <a href={`orders/${params.row.id}`}><LaunchIcon /></a>
+                <div onClick={()=>navigate(`/orders/${params.row.id}`)} ><LaunchIcon /></div>
             )
         }
     ];
@@ -67,14 +70,38 @@ export default function Orders() {
     })) : [];
 
     return (
-        <Box sx={{ height: 520, width: '100%' }}>
-            <DataGrid
-                columns={columns}
-                rows={rows}
-                loading={loading}
-                rowHeight={38}
-                disableRowSelectionOnClick
-            />
-        </Box>
+        <Fragment>
+            <MetaData title="Orders -- Epic Essentials" />
+            {
+                orders && orders.length > 0 ?
+                    <main className="orders-page-main">
+                        <h1>My Orders</h1>
+                        <div>
+                            <Box sx={{ height: 520, width: '100%' }} >
+                                <DataGrid
+                                    columns={columns}
+                                    rows={rows}
+                                    loading={loading}
+                                    rowHeight={38}
+                                    disableRowSelectionOnClick
+                                />
+                            </Box >
+                        </div>
+
+                    </main>
+                    :
+                    <main className="emptyOrders-main">
+                        <div className="emptyOrders">
+                            <img
+                                src="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724667430/Epic%20Essentials/u2tjwwkpfa2dmwyeotyp.jpg"
+                                alt="empty-cart" />
+                            <h3>No Orders Placed Yet!</h3>
+                            <p>You haven't placed any orders yet. Start shopping and place your first order now!</p>
+                            <button onClick={() => navigate("/products")}>Shop now</button>
+                        </div>
+                    </main>
+            }
+        </Fragment>
+
     );
 }

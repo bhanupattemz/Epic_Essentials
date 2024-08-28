@@ -5,13 +5,14 @@ import { getCartProducts } from "../../actions/CartAction"
 import Loader from "../layout/Loader/Loader";
 import "./ConfirmOrder.css"
 import { useNavigate } from "react-router-dom"
+import MetaData from "../layout/MetaData";
 export default function ConfirmOrder() {
     const shippinginfo = JSON.parse(localStorage.getItem("address"))
     const { products, loading, error, productsCount, gst, price, total, delivery, discount } = useSelector(state => state.cart)
     const { user } = useSelector(state => state.user)
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const proccedPaymendHandler=()=>{
+    const proccedPaymendHandler = () => {
         navigate("/process/payment")
     }
     useEffect(() => {
@@ -23,8 +24,11 @@ export default function ConfirmOrder() {
 
     return (
         <Fragment>
+            <MetaData title="Confirm Order -- Epic Essentials" />
             <main className="ConfirmOrder-main">
-                <Stepper stepNo={1} />
+                <section>
+                    <Stepper stepNo={1} />
+                </section>
                 <section className="confirmOrder-cointainer">
                     <div className="confirmOrder-left">
                         <div className="confirmOrder-address">
@@ -39,7 +43,7 @@ export default function ConfirmOrder() {
                         <div className="confirmOrder-cartItem-box">
                             {products && products.map((item) => {
                                 return (
-                                    <a href={`/products/${item.product._id}`} style={{ textDecoration: "none" }}>
+                                    <div onClick={() => navigate(`/products/${item.product._id}`)} >
                                         <div className="confirmOrder-cartItem">
                                             <div className="confirmOrder-cartItem-product">
                                                 <img src={item.product.images[0].url}
@@ -48,11 +52,11 @@ export default function ConfirmOrder() {
                                             </div>
                                             <div className="ConfirmOrder-cartItem-pricing-container">
                                                 <p className="ConfirmOrder-cartItem-pricing">
-                                                    {`${item.quantity}*${item.product.price}=$${item.quantity * item.product.price}`}
+                                                    {`${item.quantity}*${item.product.price}=₹${item.quantity * item.product.price}`}
                                                 </p>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 )
                             })}
 

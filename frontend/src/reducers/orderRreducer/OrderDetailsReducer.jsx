@@ -10,8 +10,9 @@ const initialState = {
     order: null,
     loading: false,
     error: null,
-    ordersCount:0,
-    message:""
+    success: null,
+    ordersCount: 0,
+    message: ""
 };
 
 const orderDetailsSlice = createSlice({
@@ -21,6 +22,9 @@ const orderDetailsSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -30,7 +34,7 @@ const orderDetailsSlice = createSlice({
             .addCase(ORDER_DETAILS_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.order = action.payload.order;
-                state.ordersCount=action.payload.order.length;
+                state.ordersCount = action.payload.order.length;
             })
             .addCase(ORDER_DETAILS_FAIL, (state, action) => {
                 state.loading = false;
@@ -40,7 +44,7 @@ const orderDetailsSlice = createSlice({
 });
 
 
-export const { clearErrors } = orderDetailsSlice.actions;
+export const { clearErrors, clearSuccess } = orderDetailsSlice.actions;
 
 export default orderDetailsSlice.reducer;
 

@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Loader from "../layout/Loader/Loader"
 import { addAddress } from "../../actions/UserAction"
 import { useAlert } from "react-alert"
+import MetaData from "../layout/MetaData";
 export default function AddAdress() {
     const alert = useAlert()
     const [address, setAddress] = useState({
@@ -59,11 +60,11 @@ export default function AddAdress() {
                         city: component.city
                     });
                     alert.success("CURRENT LOCATION SUCCESS")
-                }else{
+                } else {
                     alert.error("Current Location Failed")
                 }
 
-                
+
             });
         }
     };
@@ -85,11 +86,12 @@ export default function AddAdress() {
 
     return (
         <Fragment>
+            <MetaData title="Add Address -- Epic Essentials" />
             {loading ? <Loader /> :
                 <main className="add-address-main">
                     <section className="add-address-box">
                         <form onSubmit={addressSubmitHandler} className="add-address-form">
-                            <h2>Address</h2>
+                            <h1>Address</h1>
                             <div>
                                 <label htmlFor="address"><FaHome /></label>
                                 <input
@@ -117,7 +119,7 @@ export default function AddAdress() {
                                         }
                                         value={address.pincode} required
                                     />
-                                    <a onClick={currentLocationSubmitHandler} className="current-location-btn"><BiCurrentLocation /> Current Location</a>
+                                    <div onClick={currentLocationSubmitHandler} className="current-location-btn"><BiCurrentLocation /> Current Location</div>
 
                                 </div>
 

@@ -4,14 +4,13 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin, userRegister } from "../../actions/UserAction";
-import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader"
 import { useNavigate } from "react-router-dom"
 import PersonIcon from '@mui/icons-material/Person';
-import { clearErrors } from "../../reducers/userReducer/UserReducer"
+import MetaData from "../layout/MetaData";
 export default function LoginSignup() {
     const dispatch = useDispatch();
-    const alert = useAlert();
+
     const navigate = useNavigate()
     const loginTab = useRef(null);
     const registerTab = useRef(null);
@@ -25,6 +24,7 @@ export default function LoginSignup() {
         password: "",
         email: ""
     });
+    const [showpassword, setShowPassword] = useState(false)
     const { name, password, email } = user;
     const [loginPassword, setLoginPassword] = useState("");
     const { error, loading, isauthenticate } = useSelector(state => state.user);
@@ -32,10 +32,7 @@ export default function LoginSignup() {
     const loginSubmitHandler = async (e) => {
         e.preventDefault();
         await dispatch(userLogin({ username: loginUsername, password: loginPassword }));
-        if (error) {
-            alert.error(error)
-            dispatch(clearErrors())
-        }
+
     };
 
     const registerSubmitHandler = (e) => {
@@ -77,19 +74,17 @@ export default function LoginSignup() {
     };
 
     useEffect(() => {
-        if (error) {
-            alert.error(error);
-            dispatch(clearErrors())
-        }
+
         if (isauthenticate) {
             navigate(currentLocation)
         }
-    }, [alert, error, loading, isauthenticate]);
+    }, [loading, isauthenticate]);
 
     return (
         <Fragment>
             {loading ? <Loader /> :
                 <main className="loginsignup-main">
+                    <MetaData title="Login/Signup-Epic Essentials" />
                     <div className="LoginSignup-container">
                         <div className="loginSignup-box">
                             <div>
@@ -105,12 +100,12 @@ export default function LoginSignup() {
                                     <input type="text" id="username" name="username" placeholder="Username"
                                         onChange={(e) => setLoginUsername(e.target.value)} required />
                                 </div>
-                                <div className="login-password">
+                                <div className="login-password" onDoubleClick={() => setShowPassword(val => !val)}>
                                     <label htmlFor="password"><LockOpenIcon /></label>
-                                    <input type="password" name="password" id="password" placeholder="*********"
+                                    <input type={showpassword ? "text" : "password"} name="password" id="password" placeholder={showpassword ? "Password" : "********"}
                                         onChange={(e) => setLoginPassword(e.target.value)} required />
                                 </div>
-                                <a href="/password/forgot">Forgot Password?</a>
+                                <div onClick={()=>navigate("/password/forgot")} >Forgot Password?</div>
                                 <button className="login-button">Login</button>
                             </form>
                             <form className="register-form" onSubmit={registerSubmitHandler} ref={registerTab} encType="multipart/form-data">
@@ -124,14 +119,17 @@ export default function LoginSignup() {
                                     <input type="email" id="email" name="email" placeholder="abc@gmail.com"
                                         onChange={(e) => setUser({ ...user, email: e.target.value })} required />
                                 </div>
-                                <div className="register-password">
+                                <div className="register-password" onDoubleClick={() => setShowPassword(val => !val)}>
                                     <label htmlFor="password"><LockOpenIcon /></label>
-                                    <input type="password" name="password" id="password" placeholder="*********"
+                                    <input type={showpassword ? "text" : "password"} name="password" id="password" placeholder={showpassword ? "Password" : "********"}
                                         onChange={(e) => setUser({ ...user, password: e.target.value })} required />
                                 </div>
                                 <div className="register-avatar">
                                     <img src={avatarPreview} alt="avatar" />
-                                    <input type="file" name="avatar" id="avatar" onChange={handleAvatarChange} multiple />
+                                    <input type="file" name="avatar" id="avatar" onChange={handleAvatarChange} multiple style={{ display: "none" }} />
+                                    <div className="resigter-upload-img-btn" onClick={() => document.querySelector("#avatar").click()}>
+                                        Upload Img
+                                    </div>
                                 </div>
                                 <button className="register-button">Register</button>
                             </form>

@@ -19,8 +19,9 @@ const initialProductsState = {
     products: null,
     loading: false,
     error: null,
+    success: null,
     productsCount: 0,
-    currentPage:1
+    currentPage: 1
 };
 
 // Product Slice
@@ -31,18 +32,21 @@ const productSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (builder) => {
         builder
             .addCase(ALL_PRODUCTS_REQUEST, (state) => {
                 state.loading = true;
-                state.products=[]
+                state.products = []
             })
             .addCase(ALL_PRODUCTS_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.products = action.payload.data;
-                state.productsCount=action.payload.results
-                
+                state.productsCount = action.payload.results
+
             })
             .addCase(ALL_PRODUCTS_FAIL, (state, action) => {
                 state.loading = false;
@@ -53,34 +57,34 @@ const productSlice = createSlice({
             .addCase(ADMIN_DELETE_PRODUCT_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.products = action.payload.data;
-                state.productsCount=action.payload.results
-                
+                state.productsCount = action.payload.results
+                state.success = action.payload.success
             })
             .addCase(ADMIN_DELETE_PRODUCT_FAIL, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             }).addCase(ADMIN_CREATE_PRODUCT_REQUEST, (state) => {
                 state.loading = true;
-                state.products=[]
+                state.products = []
             })
             .addCase(ADMIN_CREATE_PRODUCT_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.products.push(action.payload.data)
-                state.productsCount=action.payload.results
-                
+                state.products = action.payload.data
+                state.productsCount = action.payload.results
+                state.success = action.payload.success
             })
             .addCase(ADMIN_CREATE_PRODUCT_FAIL, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             }).addCase(ADMIN_UPDATE_PRODUCT_REQUEST, (state) => {
                 state.loading = true;
-                state.products=[]
+                state.products = []
             })
             .addCase(ADMIN_UPDATE_PRODUCT_SUCCESS, (state, action) => {
                 state.loading = false;
-                state.products=action.payload.data
-                state.productsCount=action.payload.results
-                
+                state.products = action.payload.data
+                state.productsCount = action.payload.results
+                state.success = action.payload.success
             })
             .addCase(ADMIN_UPDATE_PRODUCT_FAIL, (state, action) => {
                 state.loading = false;
@@ -90,7 +94,7 @@ const productSlice = createSlice({
 });
 
 
-export const { clearErrors } = productSlice.actions;
+export const { clearErrors, clearSuccess } = productSlice.actions;
 
 export default productSlice.reducer;
 

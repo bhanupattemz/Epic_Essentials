@@ -7,21 +7,21 @@ import { DataGrid } from '@mui/x-data-grid';
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router"
 import { adminGetAllReviews, deleteReview, adminfindReviews } from "../../actions/ReviewAction"
-
+import MetaData from "../layout/MetaData";
 export default function ReviewsList() {
     const dispatch = useDispatch()
     const [deleteReviewPop, setDeleteReviewPop] = useState(false)
     const { reviews, loading, error } = useSelector(state => state.allReviews)
+    const { success } = useSelector(state => state.review)
     const [review, setreview] = useState({})
     const [searchText, setsearchText] = useState("")
     const deleteReviewhandler = async () => {
         setDeleteReviewPop(false)
-        console.log(review)
         dispatch(deleteReview(review._id))
-        dispatch(adminGetAllReviews())
+
     }
+
     const searchSubmitHandler = () => {
-        console.log(searchText)
         dispatch(adminfindReviews(searchText))
     }
     const navigate = useNavigate()
@@ -77,49 +77,53 @@ export default function ReviewsList() {
     }, [reviews, rows])
 
     useEffect(() => {
-        if (error) {
-            console.log(error)
-        }
         dispatch(adminGetAllReviews())
     }, [adminGetAllReviews, dispatch, error])
+    useEffect(() => {
+        dispatch(adminGetAllReviews())
+    }, [dispatch, adminGetAllReviews, success])
     return (
         <Fragment>
-            <main className="admin-orders-main">
+            <MetaData title="Admin Reviews List -- Epic Essentials" />
+            <main className="admin-review-list-main">
                 {deleteReviewPop &&
-                    <section className="admin-delete-user-conformation">
-                        <div className="admin-delete-user-box">
+                    <section className="admin-delete-review-conformation">
+                        <div className="admin-delete-review-box">
                             <h3>Delete Review</h3>
                             <p>Are you sure you want to delete {review.user.username}'s review on {review.product.name}?
                             </p>
                             <div>
-                                <button className="admin-update-user-delete-btn" onClick={deleteReviewhandler}>Delete</button>
-                                <button className="admin-update-user-delete-cancel-btn" onClick={(e) => {
+                                <button className="admin-update-review-delete-btn" onClick={deleteReviewhandler}>Delete</button>
+                                <button className="admin-update-review-delete-cancel-btn" onClick={(e) => {
                                     e.preventDefault();
                                     setDeleteReviewPop(false)
                                 }}>Cancel</button>
                             </div>
                         </div>
                     </section>}
-                <section className="admin-orders-slidebar">
+                <section className="admin-review-list-slidebar">
                     <SideBar />
                 </section>
                 {!deleteReviewPop &&
-                    <section className="admin-orders-details">
+                    <section className="admin-review-list-details">
 
-                        <h2>All Reviews</h2>
-                        <div>
+                        <h1 className="admin-review-list-details-heading">ALL REVIEWS</h1>
+                        <div className="admin-review-list-search">
                             <input type="text" name="username" id="username" onChange={(e) => setsearchText(e.target.value)} value={searchText} placeholder="Enter Username or productId" />
                             <button onClick={searchSubmitHandler}>search</button>
                         </div>
-                        <Box sx={{ height: 480, width: '100%' }}>
-                            <DataGrid
-                                columns={columns}
-                                rows={rows}
-                                loading={loading}
-                                rowHeight={38}
-                                disableRowSelectionOnClick
-                            />
-                        </Box>
+                        <div className="admin-review-list-datagrid">
+                            <Box sx={{ height: 480, minWidth: '600px' }}>
+                                <DataGrid
+                                    columns={columns}
+                                    rows={rows}
+                                    loading={loading}
+                                    rowHeight={38}
+                                    disableRowSelectionOnClick
+                                />
+                            </Box>
+                        </div>
+
                     </section>
                 }
 

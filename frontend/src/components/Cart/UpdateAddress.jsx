@@ -12,6 +12,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { updateAddress } from "../../actions/UserAction"
 import Loader from "../layout/Loader/Loader";
+import MetaData from "../layout/MetaData";
 export default function UpdateAddress() {
     let oldAddress = null
     const dispatch = useDispatch()
@@ -95,6 +96,7 @@ export default function UpdateAddress() {
     }, [user])
     return (
         <Fragment>
+            <MetaData title="Update Address -- Epic Essentials" />
             {loading ? <Loader /> :
                 <main className="update-address-main">
                     <section className="update-address-box">
@@ -127,7 +129,7 @@ export default function UpdateAddress() {
                                         }
                                         value={address.pincode} required
                                     />
-                                    <a onClick={currentLocationSubmitHandler} className="current-location-btn"><BiCurrentLocation /> Current Location</a>
+                                    <div onClick={currentLocationSubmitHandler} className="current-location-btn"><BiCurrentLocation /> Current Location</div>
 
                                 </div>
 

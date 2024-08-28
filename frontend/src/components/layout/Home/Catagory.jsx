@@ -24,14 +24,14 @@ export default function Catagory() {
     const navigate=useNavigate()
     const dispatch=useDispatch()
     const itemClickHandler = async (item) => {
-        await dispatch(getProducts({category:item.name}))
-        navigate("/products")
+        // await dispatch(getProducts({category:item.name}))
+        navigate(`/products?category=${item.name}`)
     }
 
     return (
         <Fragment>
             <section className="home-catogory">
-                <h3>Catagory</h3>
+                <h2 className="home-catagory-heading">Catagory</h2>
                 <div>
                     {categoryList.map((item) => {
                         return (

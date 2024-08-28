@@ -13,8 +13,9 @@ const initialState = {
     users: null,
     loading: false,
     error: null,
-    success: false,
-    usersCount:0
+    success: null,
+    usersCount:0,
+    
 };
 
 const userSlice = createSlice({
@@ -24,6 +25,9 @@ const userSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -35,6 +39,7 @@ const userSlice = createSlice({
                 state.loading = false;
                 state.users = action.payload.users;
                 state.usersCount=action.payload.users.length;
+                state.success=action.payload.success
             })
             .addCase(ADMIN_GET_ALL_USERS_FAIL, (state, action) => {
                 state.loading = false;
@@ -47,6 +52,7 @@ const userSlice = createSlice({
                 state.loading = false;
                 state.users = action.payload.users;
                 state.usersCount=action.payload.users.length;
+                state.success=action.payload.success
             })
             .addCase(ADMIN_DELETE_USER_FAIL, (state, action) => {
                 state.loading = false;
@@ -56,6 +62,6 @@ const userSlice = createSlice({
 });
 
 
-export const { clearErrors } = userSlice.actions;
+export const { clearErrors,clearSuccess } = userSlice.actions;
 
 export default userSlice.reducer;

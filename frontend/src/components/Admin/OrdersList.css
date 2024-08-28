@@ -1,23 +1,32 @@
-.admin-orders-main{
+.admin-orders-main,
+.admin-users-list-main,
+.admin-review-list-main {
     min-height: 100vh;
     display: flex;
     flex-direction: row;
 }
 
-.admin-orders-slidebar{
+.admin-orders-slidebar,
+.admin-user-list-slidebar,
+.admin-review-list-slidebar {
     width: 20%;
     border-right: 2px solid white;
-    min-height: 100vh;
+    background-color: white;
 }
-.admin-orders-details{
+
+.admin-orders-details,
+.admin-user-list-details,
+.admin-review-list-details {
     width: 80%;
 }
-.data-grid-orders-actions{
+
+.data-grid-orders-actions {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.data-grid-orders-actions>p{
+
+.data-grid-orders-actions>p {
     color: black;
     font-size: 20px;
     margin: 0px;
@@ -27,8 +36,9 @@
 
 /* delete user Pop Up */
 
-.admin-delete-user-conformation{
-    position:fixed;
+.admin-delete-user-conformation,
+.admin-delete-review-conformation {
+    position: fixed;
     width: 100%;
     height: 100%;
     display: flex;
@@ -39,46 +49,140 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.admin-delete-user-box{
+.admin-delete-user-box,
+.admin-delete-review-box {
     width: 40%;
-    background-color:  white;
-    padding:2% 5%;
+    background-color: white;
+    padding: 2% 5%;
     border: 2px solid rgb(101, 101, 101);
     border-radius: 20px;
 }
-.admin-delete-user-box>div:nth-of-type(2){
+
+.admin-delete-user-box>div:nth-of-type(2),
+.admin-delete-review-box>div:nth-of-type(2) {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 2%;
 }
-.admin-user-update-msg-div{
+
+.admin-user-update-msg-div {
     display: flex;
     flex-direction: column;
 }
 
-.admin-update-user-delete-btn,.admin-update-user-delete-cancel-btn{
+.admin-update-user-delete-btn,
+.admin-update-user-delete-cancel-btn,
+.admin-update-review-delete-btn,
+.admin-update-review-delete-cancel-btn {
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
 }
-.admin-update-user-delete-btn{
+
+.admin-update-user-delete-btn,
+.admin-update-review-delete-btn {
     background-color: red;
     color: white;
     font-weight: 700;
     border: none;
 }
-.admin-update-user-delete-btn:hover{
+
+.admin-update-user-delete-btn:hover,
+.admin-update-review-delete-btn:hover {
     background-color: tomato;
 }
-.admin-update-user-delete-cancel-btn{
+
+.admin-update-user-delete-cancel-btn,
+.admin-update-review-delete-cancel-btn {
     border: 2px solid rgb(101, 101, 101);
     font-weight: 700;
 }
 
-.admin-update-user-delete-cancel-btn:hover{
+.admin-update-user-delete-cancel-btn:hover,
+.admin-update-review-delete-cancel-btn:hover {
     background-color: rgb(140, 140, 140);
-    color: white;   
+    color: white;
 }
 
+.admin-orders-datagrid,
+.admin-user-list-datagrid,
+.admin-review-list-datagrid {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-order-details-heading,
+.admin-user-list-details-heading,
+.admin-review-list-details-heading {
+    text-align: center;
+    color: #5198fb;
+}
+
+
+/* review List */
+
+.admin-review-list-search {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.admin-review-list-search>input {
+    border: 2px solid rgb(203, 203, 203);
+    margin: 0px 10px;
+    padding: 5px;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.admin-review-list-search>button {
+    color: white;
+    background-color: tomato;
+    border: none;
+    padding: 5px 7px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+
+    .admin-orders-main,
+    .admin-users-list-main,
+    .admin-review-list-main {
+        flex-direction: column;
+    }
+
+    .admin-orders-main>section .admin-users-list-main>section,
+    .admin-review-list-main>section {
+        width: 100%;
+    }
+
+    .admin-delete-user-box,
+    .admin-delete-review-box {
+        width: 80% !important;
+    }
+
+    .admin-orders-details,
+    .admin-user-list-details,
+    .admin-review-list-details {
+        width: 100%;
+    }
+
+    .admin-orders-slidebar,
+    .admin-user-list-slidebar,
+    .admin-review-list-slidebar {
+        width: 100%;
+        background-color: white;
+    }
+
+    .admin-order-details-heading,
+    .admin-user-list-details-heading,
+    .admin-review-list-details-heading {
+       font-size: large;
+    }
+
+}

@@ -1,76 +1,76 @@
-.home-page-main {
+.contact-page-main {
     min-height: 100vh;
-}
-
-.home-page-carousel {
-    height: 70vh;
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-wrapper {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.home-img-item {
-    min-width: 100%;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.home-img-item > img {
-    width: 100%;
-    height: 70vh;
-    object-fit: cover;
-}
-
-.home-page-carousel-btn {
-    position:absolute;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    transform: translateY(-100%);
-    transition: opacity 0.3s ease-in-out;
-}
-
-.home-page-carousel-btn > div {
-    width: 20%;
-    height: 70vh;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.home-page-carousel-btn > div:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+.contact-page-main>section {
+    width: 100%;
 }
 
-.carousel-btn-click {
-    background-color: rgba(144, 141, 141, 0.5);
-    transform: scale(1.1);
+.contact-page-upper-container {
+    height: 60vh;
 }
 
-.home-img-item-indi {
+.contact-page-lower-container {
+    height: 40vh;
+    background-color: rgb(128, 208, 237);
+}
+
+.contact-page-main-container {
     position: absolute;
+    background-color: #f1f3f6;
+    height: 90vh;
+    width: 95% !important;
+
+}
+
+.contact-page-main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.contact-page-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.contact-page-data-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
+    justify-content: space-evenly;
+}
+.contact-page-data-container>div{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    bottom: 10px;
+    align-items: center;
+    text-align: center;
+}
+.contact-page-data-container>div>svg{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 5px solid rgb(128, 208, 237);
+    padding: 10px;
+    background-color:  rgb(128, 208, 237);
+    color: white;
 }
 
-.home-img-item-indi > div {
-    width: 10px;
-    height: 10px;
-    margin: 5px;
-    border-radius: 50%;
-    background-color: azure;
-    transition: background-color 0.3s ease;
-}
-
-.home-img-item-indi > div.active {
-    background-color: blue;
+.contact-page-img {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    object-fit: contain;
+    border-radius: 100%;
+    border: 5px solid rgb(128, 208, 237);
 }

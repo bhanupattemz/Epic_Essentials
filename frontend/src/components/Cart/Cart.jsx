@@ -8,15 +8,18 @@ import Loader from "../layout/Loader/Loader";
 import EmptyCart from "./EmptyCart";
 import { useNavigate } from "react-router-dom"
 import ProductBox from "../layout/Home/Product";
-
+import MetaData from "../layout/MetaData";
 export default function Cart() {
     const dispatch = useDispatch();
-    const { loading, error, products, productsCount, price, gst, discount, delivery, total } = useSelector(state => state.cart);
+    const { loading, products, productsCount, price, gst, discount, delivery, total } = useSelector(state => state.cart);
     const navigate = useNavigate()
     const { user } = useSelector(state => state.user)
     let recentProducts = JSON.parse(localStorage.getItem("recent"))
     useEffect(() => {
-        dispatch(getCartProducts());
+        if (user) {
+            dispatch(getCartProducts());
+        }
+
     }, [dispatch, getCartProducts]);
 
     const placeOrderHandler = () => {
@@ -24,6 +27,7 @@ export default function Cart() {
     }
     return (
         <Fragment>
+            <MetaData title="cart -- Epic Essentials" />
             {loading ? <Loader /> : (
                 <Fragment>
                     {products && products.length == 0 ? <EmptyCart /> :

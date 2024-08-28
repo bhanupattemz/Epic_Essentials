@@ -8,14 +8,22 @@ module.exports.cartProducts = wrapAsync(async (req, res) => {
     const cartitems = await Cart.findOne({ user: req.user._id })
         .populate('products.product');
     if (!cartitems) {
-        return res.status(404).json({
-            success: false,
-            message: 'Cart not found'
+       return  res.status(200).json({
+            success: null,
+            products: [],
+            price: 0,
+            gst: 0,
+            discount:0,
+            delivery:0,
+            total: 0
         });
+    }
+    if (!cartitems) {
+        throw new ExpressError('Cart not found', 404);
     }
 
     res.status(200).json({
-        success: true,
+        success: null,
         products: cartitems.products,
         price: cartitems.price,
         gst: cartitems.gst,
@@ -34,10 +42,7 @@ module.exports.addProduct = wrapAsync(async (req, res) => {
     }
     const product = await Product.findById(_id);
     if (!product) {
-        return res.status(404).json({
-            success: false,
-            message: 'Product not found'
-        });
+        throw new ExpressError('Product not found', 404);
     }
     const productInCart = cart.products.find(item => item.product == _id);
     cart.price = cart.price + product.price * quantity
@@ -52,7 +57,7 @@ module.exports.addProduct = wrapAsync(async (req, res) => {
     }
     await cart.save();
     res.status(200).json({
-        success: true,
+        success: productInCart ? "change quantity of product" : "new product add to cart",
         products: cart.products,
         price: cart.price,
         gst: cart.gst,
@@ -73,7 +78,7 @@ module.exports.deleteProduct = wrapAsync(async (req, res) => {
     cart.discount = cart.price > 10000 ? 5 : 0;
     await cart.save();
     res.status(200).json({
-        success: true,
+        success: "product removed from cart",
         products: cart.products,
         price: cart.price,
         gst: cart.gst,
@@ -85,10 +90,13 @@ module.exports.deleteProduct = wrapAsync(async (req, res) => {
 
 module.exports.deleteallcartProducts = wrapAsync(async (req, res) => {
     const removedcartproducts = await Cart.findOneAndDelete({ user: req.user._id })
-    removedcartproducts.products = []
-    await removedcartproducts.save()
     res.status(200).json({
-        success: true,
-        message: "removed all products from cart"
+        success: null,
+        products: [],
+        price: 0,
+        gst: 0,
+        discount:0,
+        delivery:0,
+        total: 0
     });
 })

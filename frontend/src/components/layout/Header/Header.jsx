@@ -1,5 +1,4 @@
 import { ReactNavbar } from "overlay-navbar"
-import logo from "../../../assets/react.svg"
 import { CiSearch } from "react-icons/ci";
 import "./Header.css"
 import { MdAccountBox } from "react-icons/md";
@@ -7,12 +6,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux"
 export default function Header() {
     const { user } = useSelector(state => state.user)
+    const logo="https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724501835/Epic%20Essentials/sfrepmxrnvmjm8zrjyoa.png"
     return (
         <div className="header">
             <ReactNavbar
                 burgerColorHover="#eb4034"
                 logo={logo}
-                logoWidth="20vmax"
+                logoWidth="100%"
                 navColor1="white"
                 logoHoverSize="10px"
                 logoHoverColor="#eb4034"

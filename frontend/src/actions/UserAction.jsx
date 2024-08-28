@@ -42,7 +42,6 @@ import {
 } from '../constants/Constants';
 import axios from 'axios';
 import { useParams } from "react-router-dom"
-// Create an instance of axios with a base URL
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000/api/v1/'
 });
@@ -51,12 +50,7 @@ axiosInstance.defaults.withCredentials = true;
 const userLogin = (params) => async (dispatch) => {
     try {
         dispatch({ type: LOGIN_REQUEST });
-
         const response = await axiosInstance.post('login', params);
-
-        // Store token in localStorage
-        localStorage.setItem('token', response.data.token);
-
         dispatch({
             type: LOGIN_SUCCESS,
             payload: response.data
@@ -105,14 +99,35 @@ const getCurrentUser = () => async (dispatch) => {
         });
     }
 };
+const getIsUserLogIn = () => async (dispatch) => {
+    try {
+        dispatch({ type: CURRENT_USER_REQUEST });
+        const response = await axiosInstance.get('isuserin');
+
+        dispatch({
+            type: CURRENT_USER_SUCCESS,
+            payload: response.data
+        });
+    } catch (error) {
+        dispatch({
+            type: CURRENT_USER_FAIL,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        });
+    }
+};
+
 
 
 const userLogout = () => async (dispatch) => {
     try {
         dispatch({ type: LOGOUT_REQUEST })
         const response = await axiosInstance.post('logout');
-        dispatch({ type: LOGOUT_SUCCESS })
+        dispatch({
+            type: LOGOUT_SUCCESS,
+            payload: response.data
+        })
     } catch (error) {
+        console.log(error)
         dispatch({
             type: LOGOUT_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
@@ -219,7 +234,7 @@ const addAddress = (params) => async (dispatch) => {
     }
 };
 
-const updateAddress = (params,_id) => async (dispatch) => {
+const updateAddress = (params, _id) => async (dispatch) => {
     try {
         dispatch({ type: USER_ADDRESS_REQUEST });
         const response = await axiosInstance.put(`user/address/${_id}`, params);
@@ -352,7 +367,7 @@ const clearErrors = () => (dispatch) => {
 };
 
 export {
-    userLogin, userRegister, getCurrentUser, userLogout,addAddress,updateAddress,deleteAddress,
+    userLogin, userRegister, getCurrentUser, userLogout, addAddress, updateAddress, deleteAddress, getIsUserLogIn,
     userUpdate, passwordUpdate, deleteUser, passwordreset,
     changePassword, adminGetAllUsers, adminDeleteUser, adminGetUserDetails,
     adminUpdateUserDetails, adminBlockAndUnblockUserDetails,

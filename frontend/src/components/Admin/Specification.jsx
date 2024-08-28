@@ -16,7 +16,7 @@ export default function Specifications({ items, delHandler }) {
             headerName: "action",
             flex: 0.5,
             renderCell: (params) => (
-                <p onClick={()=>delHandler(params.value)}><MdDeleteOutline /></p>
+                <div onClick={()=>delHandler(params.value)}><MdDeleteOutline /></div>
             )
         }
     ];

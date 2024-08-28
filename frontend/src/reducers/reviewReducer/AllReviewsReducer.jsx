@@ -10,7 +10,7 @@ const initialState = {
     reviews: null,
     loading: false,
     error: null,
-    success: false,
+    success:null,
     reviewsCount: 0
 
 };
@@ -23,6 +23,9 @@ const allReviewsSlice = createSlice({
         clearErrors: (state) => {
             state.error = null;
         },
+        clearSuccess: (state) => {
+            state.success = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -32,7 +35,7 @@ const allReviewsSlice = createSlice({
             .addCase(ADMIN_GET_ALL_REVIEWS_SUCCESS, (state, action) => {
                 state.loading = false;
                 state.reviews = action.payload.reviews;
-                state.success = true
+                state.success = action.payload.success
                 state.reviewsCount = action.payload.reviews.length
             })
             .addCase(ADMIN_GET_ALL_REVIEWS_FAIL, (state, action) => {
@@ -43,7 +46,7 @@ const allReviewsSlice = createSlice({
 });
 
 
-export const { clearErrors } = allReviewsSlice.actions;
+export const { clearErrors,clearSuccess } = allReviewsSlice.actions;
 
 export default allReviewsSlice.reducer;
 

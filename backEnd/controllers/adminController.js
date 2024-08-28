@@ -4,12 +4,12 @@ const sendMail = require("../utils/sendMail")
 const { v4: uuid } = require('uuid')
 const ExpressError = require("../utils/ExpressError")
 const Order = require("../models/orderModel")
-
+const Products = require("../models/productModel")
 
 module.exports.allUser = wrapAsync(async (req, res) => {
     const users = await User.find()
     res.status(200).json({
-        success: true,
+        success: null,
         users
     })
 })
@@ -20,7 +20,7 @@ module.exports.userDetails = wrapAsync(async (req, res) => {
         throw new ExpressError("User Not Found", 404)
     }
     res.status(200).json({
-        success: true,
+        success: null,
         user
     })
 })
@@ -48,8 +48,7 @@ module.exports.deleteUserByAdmin = wrapAsync(async (req, res) => {
     const data = await sendMail(options)
     const users = await User.find()
     res.status(200).json({
-        success: true,
-        message: `delete user:${user.username} successfully`,
+        success: `delete user:${user.username} successfully`,
         users
     })
 })
@@ -112,7 +111,7 @@ module.exports.updateUserRole = wrapAsync(async (req, res) => {
     await sendMail(options);
 
     res.status(200).json({
-        success: true,
+        success: `${user.name}'s role changed`,
         user
     });
 });
@@ -125,7 +124,7 @@ module.exports.blockAndUnblockUser = wrapAsync(async (req, res) => {
     if (!user) {
         throw new ExpressError("User Not Found", 404);
     } else if (user.isBlocked === block) {
-        throw new ExpressError("Bad request: User already in this state",400);
+        throw new ExpressError("Bad request: User already in this state", 400);
     }
 
     let options = {};
@@ -169,7 +168,7 @@ module.exports.blockAndUnblockUser = wrapAsync(async (req, res) => {
     const data = await sendMail(options);
 
     res.status(200).json({
-        success: true,
+        success: `${user.name}'s ${block ? "blocked" : "unblocked"}`,
         user
     });
 });
@@ -178,7 +177,17 @@ module.exports.blockAndUnblockUser = wrapAsync(async (req, res) => {
 module.exports.allOrders = wrapAsync(async (req, res) => {
     const orders = await Order.find();
     res.status(200).json({
-        sucees: true,
+        success: null,
         orders
     })
+})
+
+module.exports.adminGetAllProducts = wrapAsync(async (req, res) => {
+    const products = await Products.find({})
+    res.status(200).json({
+        success: null,
+        currentPage: 1,
+        results: products.length,
+        data: products
+    });
 })

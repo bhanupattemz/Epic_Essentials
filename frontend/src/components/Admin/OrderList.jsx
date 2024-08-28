@@ -8,6 +8,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router"
 import { adminGetAllOrders, adminDeleteOrders } from "../../actions/Orderactions"
+import MetaData from "../layout/MetaData";
 export default function OrderList() {
     const dispatch = useDispatch()
     const { products, error } = useSelector(state => state.products)
@@ -91,21 +92,25 @@ export default function OrderList() {
     }, [adminGetAllOrders, dispatch, error])
     return (
         <Fragment>
+            <MetaData title="Admin All Orders -- Epic Essentials" />
             <main className="admin-orders-main">
                 <section className="admin-orders-slidebar">
                     <SideBar />
                 </section>
                 <section className="admin-orders-details">
-                    <h2>ORDERS</h2>
-                    <Box sx={{ height: 480, width: '100%' }}>
-                        <DataGrid
-                            columns={columns}
-                            rows={rows}
-                            loading={loading}
-                            rowHeight={38}
-                            disableRowSelectionOnClick
-                        />
-                    </Box>
+                    <h1 className="admin-order-details-heading">ORDERS</h1>
+                    <div className="admin-orders-datagrid">
+                        <Box sx={{ height: 480, minWidth: '600px' }}>
+                            <DataGrid
+                                columns={columns}
+                                rows={rows}
+                                loading={loading}
+                                rowHeight={38}
+                                disableRowSelectionOnClick
+                            />
+                        </Box>
+                    </div>
+
                 </section>
             </main>
         </Fragment>

@@ -17,8 +17,9 @@ const initialState = {
     delivery: 0,
     total: 0,
     loading: false,
-    error: null,
     productsCount: 0,
+    error: null,
+    success:null
 };
 
 
@@ -28,6 +29,9 @@ const cartSlice = createSlice({
     reducers: {
         clearErrors: (state) => {
             state.error = null;
+        },
+        clearSuccess: (state) => {
+            state.success = null;
         },
     },
     extraReducers: (builder) => {
@@ -45,6 +49,7 @@ const cartSlice = createSlice({
                 state.discount = action.payload.discount;
                 state.delivery = action.payload.delivery;
                 state.total = action.payload.total;
+                state.success=action.payload.success;
             })
             .addCase(CART_PRODUCTS_FAIL, (state, action) => {
                 state.loading = false;
@@ -64,7 +69,7 @@ const cartSlice = createSlice({
 });
 
 
-export const { clearErrors } = cartSlice.actions;
+export const { clearErrors,clearSuccess } = cartSlice.actions;
 
 export default cartSlice.reducer;
 

@@ -118,7 +118,7 @@ const adminUpdateProduct = (params, _id) => async (dispatch) => {
 const adminGetAllProucts=() => async (dispatch) =>{
     try {
         dispatch({ type: ALL_PRODUCTS_REQUEST });
-        const response = await axiosInstance.get('products');
+        const response = await axiosInstance.get('admin/products');
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
             payload: response.data

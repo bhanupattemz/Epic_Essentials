@@ -4,7 +4,7 @@
   "main": "backEnd/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "initial_dep": "npm install --force && cd frontend && npm install --force",
+    "render-deploy": "npm install --force && cd frontend && npm install --force && npm run build",
     "start": "node backEnd/server.js",
     "dev": "nodemon backend/server.js"
   },

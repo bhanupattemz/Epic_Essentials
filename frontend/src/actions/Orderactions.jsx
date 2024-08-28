@@ -20,7 +20,7 @@ import {
     ADMIN_DELETE_ORDERS_SUCCESS,
 } from '../constants/Constants';
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000/api/v1/'
+    baseURL: '/api/v1/'
 })
 axiosInstance.defaults.withCredentials = true;
 const createOrder = ( orderInfo, shippingInfo, paymentInfo) => async (dispatch) => {

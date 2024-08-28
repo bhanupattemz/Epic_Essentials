@@ -5,7 +5,7 @@ import {
     CART_PRODUCTS_SUCCESS,
 } from '../constants/Constants';
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000/api/v1/'
+    baseURL: '/api/v1/'
 })
 axiosInstance.defaults.withCredentials = true;
 const getCartProducts = () => async (dispatch) => {

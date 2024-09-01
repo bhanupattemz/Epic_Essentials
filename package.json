@@ -7,6 +7,7 @@
     "render-deploy": "npm install --force && cd frontend && npm install --force && npm run build",
     "start": "node backEnd/server.js",
     "dev": "nodemon backend/server.js"
+
   },
   "author": "bhanupattem",
   "license": "ISC",

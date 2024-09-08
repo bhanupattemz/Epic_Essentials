@@ -69,15 +69,15 @@ app.use("/api/v1", orderRoute)
 app.use("/api/v1", cartRoute)
 app.use("/api/v1", paymentRoute)
 
-app.use("api/v1/:no", (req, res, next) => {
+app.use("*", (req, res, next) => {
     next(new ExpressError("Page Not Found", 404))
 })
 
-app.use(express.static(path.join(__dirname,"../frontend/dist")))
+// app.use(express.static(path.join(__dirname,"../frontend/dist")))
 
-app.use("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"../frontend/index.html"))
-})
+// app.use("*",(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,"../frontend/index.html"))
+// })
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err

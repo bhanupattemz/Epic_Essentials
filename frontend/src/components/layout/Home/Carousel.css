@@ -73,18 +73,18 @@
     background-color: blue;
 }
 .middle-carousel-anch{
-    width: 80%;
+    width: 80% !important;
 }
 
 @media only screen and (max-width: 600px),
 (max-device-width:600px) {
     .home-page-carousel {
-        height: 50vh !important;
+        height: 25vh !important;
     }
     .home-img-item > img {
-        height: 50vh !important;
+        height: 25vh !important;
     }
     .home-page-carousel-btn > div{
-        height: 50vh !important;
+        height: 25vh !important;
     }
 }

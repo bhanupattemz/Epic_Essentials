@@ -35,7 +35,6 @@ function ProtectedRoute({ isadmin, element }) {
         }
         return element;
     } else {
-        navigate("/loginsignup")
         return <Navigate to="/loginsignup" />;
     }
 }

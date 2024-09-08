@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-    origin: 'https://epic-essentials-stores.vercel.app/',
+    origin: 'https://epic-essentials-stores.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true
 }));
@@ -73,11 +73,11 @@ app.use("*", (req, res, next) => {
     next(new ExpressError("Page Not Found", 404))
 })
 
-// app.use(express.static(path.join(__dirname,"../frontend/dist")))
+app.use(express.static(path.join(__dirname,"../frontend/dist")))
 
-// app.use("*",(req,res)=>{
-//     res.sendFile(path.resolve(__dirname,"../frontend/index.html"))
-// })
+app.use("*",(req,res)=>{
+    res.sendFile(path.resolve(__dirname,"../frontend/index.html"))
+})
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err

@@ -17,7 +17,7 @@ import {
     PRODUCTS_DETAILS_SUCCESS
 } from '../constants/Constants';
 const axiosInstance = axios.create({
-    baseURL: '/api/v1/'
+    baseURL: 'https://epic-essentials.onrender.com/api/v1/'
 })
 axiosInstance.defaults.withCredentials = true;
 const getProducts = (params) => async (dispatch) => {

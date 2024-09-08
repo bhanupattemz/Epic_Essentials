@@ -17,7 +17,7 @@ import {
     ADMIN_GET_ALL_REVIEWS_SUCCESS
 } from '../constants/Constants';
 const axiosInstance = axios.create({
-    baseURL: '/api/v1/',
+    baseURL: 'https://epic-essentials.onrender.com/api/v1/',
     headers: {
         'Content-Type': 'application/json'
     }

@@ -69,7 +69,7 @@ app.use("/api/v1", orderRoute)
 app.use("/api/v1", cartRoute)
 app.use("/api/v1", paymentRoute)
 
-app.use("*", (req, res, next) => {
+app.use("api/v1/:no", (req, res, next) => {
     next(new ExpressError("Page Not Found", 404))
 })
 

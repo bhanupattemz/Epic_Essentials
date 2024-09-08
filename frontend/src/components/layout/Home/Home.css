@@ -1,12 +1,11 @@
-.home-page-main h2 {
-    color: #345868;
+
+.home-page-main h2{
+    color:  #345868;
     margin: 0px 0px 0px 20px;
 }
-
-.products-heading {
+.products-heading{
     text-align: center;
 }
-
 .banner {
     background-image: url("https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724763337/Epic%20Essentials/x4sjrlpprimyp5vfrc5k.jpg");
     background-repeat: no-repeat;
@@ -143,14 +142,9 @@
 @media only screen and (max-width: 600px),
 (max-device-width:600px) {
     .productCard {
-        width: 100%; 
+        width: 150px;
         height: 260px;
-        margin: 0px;
-        margin-bottom: 5px;
     }
-    .products>div {
-        width: 45%;
-      }
 
     .productCard img {
         width: 100%;
@@ -164,8 +158,7 @@
     .banner>h1 {
         font-size: large;
     }
-
-    .home-page-main h2 {
+    .home-page-main h2{
         margin: 0px 0px 0px 10px;
     }
 }

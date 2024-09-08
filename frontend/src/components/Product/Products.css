@@ -87,15 +87,6 @@ body {
     justify-content: space-between;
 }
 
-.filter-price-display>div:nth-of-type(2){
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-}
-.filter-price-display>div>input{
-    width: 40%;
-}
-
 .filter-price-range {
     width: 94%;
     margin: 0px 3%;

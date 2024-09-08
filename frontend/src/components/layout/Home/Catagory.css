@@ -13,6 +13,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .catagory-item>img {
@@ -30,12 +32,12 @@
 @media only screen and (max-width: 600px),
 (max-device-width:600px) {
     .catagory-item {
-        width: 20%;
+        width: 30%;
         font-size: 0.8rem;
     }
     .catagory-item>img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         object-fit: cover;
     }
 }

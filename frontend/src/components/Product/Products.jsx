@@ -114,8 +114,8 @@ export default function Products() {
                                 </Box>
                             </div>
                             <div className="filter-price-display">
-                                <div>₹{filterPrice[0]}</div>
-                                <div>₹{filterPrice[1]}</div>
+                                <div>₹ <input type="number" onChange={(e) => setFilterPrice(val => [e.target.value, val[1]])} value={filterPrice[0]} /></div>
+                                <div>₹ <input type="number" onChange={(e) => setFilterPrice(val => [val[0], e.target.value])} value={filterPrice[1]} /></div>
                             </div>
                         </div>
                         <div className="filters-catogories-container">

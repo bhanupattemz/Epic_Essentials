@@ -62,9 +62,9 @@ function App() {
     getStripeApiKey();
 
   }, [dispatch, getProducts]);
-  
+
   useEffect(() => {
-    if (user) {
+    if (user && user.username) {
       dispatch(getCartProducts());
     }
   }, [dispatch, getCartProducts, user])

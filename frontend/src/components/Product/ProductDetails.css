@@ -2,17 +2,21 @@
     min-height: 100vh;
     padding: 2%;
 }
-.product-details-page-main h1{
+
+.product-details-page-main h1 {
     color: #5198fb;
     font-size: larger;
 }
-.product-details-page-main h2{
-    color:  #345868;
+
+.product-details-page-main h2 {
+    color: #345868;
 }
-.product-details-review-heading{
-   padding: 20px;
-   margin: 0px;
+
+.product-details-review-heading {
+    padding: 20px;
+    margin: 0px;
 }
+
 .MuiPaper-root {
     width: 50%;
     display: flex;
@@ -70,7 +74,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    transform:translateY(-10vh);
+    transform: translateY(-10vh);
 
 }
 
@@ -248,13 +252,15 @@
     flex-direction: row;
 
 }
-.product-details-content-reducer-container{
+
+.product-details-content-reducer-container {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 10px;
 }
+
 .product-details-content-reducer-container>div {
     cursor: pointer;
     font-weight: 700;
@@ -264,7 +270,7 @@
     text-align: center;
     margin-bottom: 0px !important;
     border-radius: 5px;
-  
+
 }
 
 .product-details-content-reducer-container>div>p {
@@ -300,10 +306,11 @@
     /* text-align: center; */
 }
 
-.allReviews h5{
+.allReviews h5 {
     text-align: center;
     width: 100%;
 }
+
 /*Review*/
 .review-card {
     min-width: 40%;
@@ -344,7 +351,8 @@
 .review-card-user-details h4 {
     margin: 10px;
 }
-.review-card-delete-review-btn{
+
+.review-card-delete-review-btn {
     background-color: red;
     color: white;
     border: none;
@@ -353,10 +361,12 @@
     cursor: pointer;
     transition: 0.5 ease-in-out;
 }
-.review-card-delete-review-btn:hover{
+
+.review-card-delete-review-btn:hover {
     background-color: rgb(255, 56, 56);
     margin-bottom: 10px;
 }
+
 .product-details-similar-products,
 .product-details-recent-products {
     width: 96%;
@@ -416,7 +426,8 @@
 
     transition: all 0.5s ease-in-out;
 }
-.product-details-content-hide{
+
+.product-details-content-hide {
     position: absolute;
     width: 96%;
     height: 50px;
@@ -459,6 +470,7 @@
         min-width: 70%;
         max-width: 70%;
     }
+
     .product-details-guaranteesItems {
         font-size: 0.6em;
     }
@@ -474,5 +486,13 @@
     .productdetails-container>div {
         margin-bottom: 15px;
     }
-    
+
+    .product-details-similar-products-container>div>div,
+    .product-details-recent-products-container>div>div{
+        width: 200px;
+        margin-left: 10px;
+    }
+    .product-details-content-reducer-container>div{
+        width: 50%;
+    }
 }

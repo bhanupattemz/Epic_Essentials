@@ -293,7 +293,7 @@ export default function ProductDetails() {
                     {similarProducts &&
                         <section className="product-details-similar-products">
                             <h2>Similar Product</h2>
-                            <div>
+                            <div className="product-details-similar-products-container">
                                 {similarProducts.map((item, index) => {
                                     return (
                                         <ProductBox prod={item} />
@@ -305,7 +305,7 @@ export default function ProductDetails() {
                     {recentProducts &&
                         <section className="product-details-recent-products">
                             <h2>Recent Product</h2>
-                            <div>
+                            <div className="product-details-recent-products-container">
                                 {recentProducts.map((item, index) => {
                                     return (
                                         <ProductBox prod={item} />

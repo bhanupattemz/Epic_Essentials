@@ -45,7 +45,7 @@ export default function Payment() {
     paybtn.current.disabled = true;
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/v1/process/payment", paymentData);
+      const { data } = await axios.post("/api/v1/process/payment", paymentData);
       const clientSecret = data.client_secret;
 
       if (!stripe || !elements) return;

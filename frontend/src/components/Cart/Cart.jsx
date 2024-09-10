@@ -133,7 +133,7 @@ export default function Cart() {
                                 {recentProducts &&
                                     <section className="cart-page-recent-products">
                                         <h3>Recent Product</h3>
-                                        <div>
+                                        <div className="cart-page-recent-products-container">
                                             {recentProducts.map((item, index) => {
                                                 return (
                                                     <ProductBox prod={item} />

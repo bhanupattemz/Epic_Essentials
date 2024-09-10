@@ -1,7 +1,7 @@
 
 .home-page-main h2{
     color:  #345868;
-    margin: 0px 0px 0px 20px;
+    margin: 15px 10px;
 }
 .products-heading{
     text-align: center;
@@ -166,4 +166,8 @@
     .home-page-main h2{
         margin: 0px 0px 0px 10px;
     }
+    .home-page-recent-products>div>div {
+        width: 200px !important;
+        margin-left: 10px;
+      }
 }

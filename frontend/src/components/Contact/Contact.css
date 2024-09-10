@@ -74,3 +74,30 @@
     border-radius: 100%;
     border: 5px solid rgb(128, 208, 237);
 }
+
+
+
+@media only screen and (max-width: 600px),
+(max-device-width:600px) {
+    .contact-page-img-container{
+        width: 80%;
+        margin-top: 10px;
+    }
+    .contact-page-data-container{
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .contact-page-data-container>div{
+        width: 80%;
+    }
+    .contact-page-main-container{
+        height: auto;
+    }
+    .contact-page-lower-container{
+        min-height: 90vh;
+    }
+    .contact-page-upper-container{
+        min-height: 80vh;
+    }
+    
+}

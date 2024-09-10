@@ -30,7 +30,7 @@ export default function Contact() {
                             <h2>
                                 ABOUT US
                             </h2>
-                            <p>abcd</p>
+                            <p>At Epic Essentials, we are passionate about bringing the best gaming gear to enthusiasts worldwide. Our mission is to provide top-tier products and exceptional service to elevate your gaming experience</p>
                         </div>
                     </div>
                     <div>
@@ -41,7 +41,7 @@ export default function Contact() {
                             <h2>
                                 PHONE
                             </h2>
-                            <p>8555860089</p>
+                            <p>📞 +1-800-123-GAME (4263)</p>
                         </div>
                     </div>
                     <div>
@@ -50,7 +50,11 @@ export default function Contact() {
 
                         <div>
                             <h2>OUR LOCATION</h2>
-                            <p>ELLORA HOSTEL/ROOM NO-137 JNTUA COLLEGE OF ENGINEERING ANANTAPUR Anantapur Andhra Pradesh India-515002</p>
+                            <p>Epic Essentials Headquarters
+                                1234 Game Street,
+                                Level Up City,
+                                Playland, CA 90210,
+                                United States.</p>
                         </div>
                     </div>
                 </div>

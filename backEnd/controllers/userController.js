@@ -65,7 +65,9 @@ module.exports.createPasswordToken = wrapAsync(async (req, res) => {
         resetPasswordToken: token,
         resetPasswordExpire: Date.now() + 30 * 60 * 1000
     })
-    const link = `http://localhost:5173/password/reset/${token}`
+    const protocol = req.secure ? 'https' : 'http';
+    const host = req.get('host');
+    const link = `${protocol}://${host}/password/reset/${token}`
     const options = {
         mail: email,
         subject: "change Password",

@@ -17,12 +17,11 @@ import {
     ADMIN_GET_ALL_REVIEWS_SUCCESS
 } from '../constants/Constants';
 const axiosInstance = axios.create({
-    baseURL: 'https://epic-essentials.onrender.com/api/v1/',
+    baseURL: '/api/v1/',
     headers: {
         'Content-Type': 'application/json'
     }
 })
-axiosInstance.defaults.withCredentials = true;
 const createreview = (params, _id) => async (dispatch) => {
     try {
         dispatch({ type: CREATE_REVIEW_REQUEST });

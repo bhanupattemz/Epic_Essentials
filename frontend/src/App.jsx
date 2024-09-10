@@ -72,7 +72,7 @@ function App() {
   async function getStripeApiKey() {
     try {
       axios.defaults.withCredentials = true;
-      const { data } = await axios.get("https://epic-essentials.onrender.com/api/v1/stripe_api_key");
+      const { data } = await axios.get("/api/v1/stripe_api_key");
       setStripeApiKey(data.api_key);
     } catch (error) {
       console.error("Failed to fetch Stripe API key:", error);

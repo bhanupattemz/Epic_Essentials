@@ -5,9 +5,8 @@ import {
     CART_PRODUCTS_SUCCESS,
 } from '../constants/Constants';
 const axiosInstance = axios.create({
-    baseURL: 'https://epic-essentials.onrender.com/api/v1/'
+    baseURL: "/api/v1"
 })
-axiosInstance.defaults.withCredentials = true;
 const getCartProducts = () => async (dispatch) => {
     try {
         dispatch({ type: CART_PRODUCTS_REQUEST });

@@ -43,9 +43,10 @@ import {
 import axios from 'axios';
 import { useParams } from "react-router-dom"
 const axiosInstance = axios.create({
-    baseURL: 'https://epic-essentials.onrender.com/api/v1/'
+     baseURL:"/api/v1"
 });
-axiosInstance.defaults.withCredentials = true;
+
+
 // User login action
 const userLogin = (params) => async (dispatch) => {
     try {

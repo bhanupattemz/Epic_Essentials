@@ -6,7 +6,6 @@ const passPortLocal = require("passport-local")
 const User = require("./models/userModel")
 require('dotenv').config({ path: "./backEnd/config/.env" })
 const MongoStore = require("connect-mongo")
-const cors = require("cors")
 const path = require("path")
 //Route imports
 const productsRoute = require("./routes/products")
@@ -21,11 +20,7 @@ const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({
-    origin: 'https://epic-essentials.onrender.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    credentials: true
-}));
+
 
 const store = MongoStore.create({
     mongoUrl: process.env.DB_URL,
@@ -47,6 +42,8 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
 };
+
+
 
 app.use(Session(sessionConfig))
 
@@ -73,11 +70,11 @@ app.use("api/v1/:no", (req, res, next) => {
     next(new ExpressError("Page Not Found", 404))
 })
 
-app.use(express.static(path.join(__dirname,"../frontend/dist")))
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-app.use("*",(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"../frontend/index.html"))
-})
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
+});
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err

@@ -7,7 +7,6 @@ const { connectDb } = require("../config/database")
 require('dotenv').config({ path: "../config/.env" })
 connectDb()
 async function insertProducts() {
-    console.log(products[0])
     await product.deleteMany({})
     const imgs = [
         {
@@ -25,6 +24,10 @@ async function insertProducts() {
         {
             "public_id": "default",
             "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1723484031/Epic%20Essentials/muud9igvsksbrdvbgsse.jpg"
+        },
+        {
+            "public_id": "default",
+            "url": "https://res.cloudinary.com/dmvxvzb5n/image/upload/v1724853502/Epic%20Essentials/e35lbesaofqxv9owz9na.jpg"
         }
     ]
     products.forEach((item) => {

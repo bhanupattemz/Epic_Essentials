@@ -1601,8 +1601,443 @@ module.exports.products = [
                 "value": "Wireless, USB-C"
             }
         ]
+    },
+    {
+        "name": "ASUS ROG Strix XG43UQ",
+        "discription": "43-inch 4K gaming monitor with 144Hz refresh rate and FreeSync Premium Pro.",
+        "price": 149999,
+        "category": "Monitor",
+        "stock": 10,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=ASUS+ROG+Strix+XG43UQ"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=ASUS+ROG+Strix+XG43UQ+Side"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Screen Size",
+                "value": "43 inches"
+            },
+            {
+                "key": "Resolution",
+                "value": "3840 x 2160 (4K UHD)"
+            },
+            {
+                "key": "Refresh Rate",
+                "value": "144Hz"
+            },
+            {
+                "key": "Response Time",
+                "value": "1ms MPRT"
+            },
+            {
+                "key": "HDR",
+                "value": "DisplayHDR 1000"
+            }
+        ]
+    },
+    {
+        "name": "Razer Basilisk V3",
+        "discription": "Ergonomic wired gaming mouse with 11 programmable buttons and HyperScroll wheel.",
+        "price": 6999,
+        "category": "Mouse",
+        "stock": 50,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Razer+Basilisk+V3"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Razer+Basilisk+V3+Side"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Sensor",
+                "value": "Razer Focus+ 26K DPI Optical"
+            },
+            {
+                "key": "Buttons",
+                "value": "11 Programmable"
+            },
+            {
+                "key": "Lighting",
+                "value": "Razer Chroma RGB"
+            },
+            {
+                "key": "Cable",
+                "value": "Speedflex Cable"
+            },
+            {
+                "key": "Weight",
+                "value": "101g"
+            }
+        ]
+    },
+    {
+        "name": "Secretlab TITAN Evo 2022 SoftWeave",
+        "discription": "Premium gaming chair with SoftWeave fabric and 4-way adjustable lumbar support.",
+        "price": 49999,
+        "category": "Chair",
+        "stock": 20,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Secretlab+TITAN+Evo+2022+SoftWeave"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Secretlab+TITAN+Evo+2022+SoftWeave+Side"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Material",
+                "value": "SoftWeave Plus Fabric"
+            },
+            {
+                "key": "Weight Capacity",
+                "value": "180kg"
+            },
+            {
+                "key": "Recline",
+                "value": "165 degrees"
+            },
+            {
+                "key": "Armrests",
+                "value": "4D"
+            },
+            {
+                "key": "Lumbar Support",
+                "value": "4-way L-ADAPT"
+            }
+        ]
+    },
+    {
+        "name": "Fully Jarvis Standing Desk",
+        "discription": "Electric sit-stand desk with programmable height presets and bamboo top.",
+        "price": 69999,
+        "category": "Desk",
+        "stock": 15,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Fully+Jarvis+Standing+Desk"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Fully+Jarvis+Standing+Desk+Side"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Height Range",
+                "value": "60.5 - 125.7 cm"
+            },
+            {
+                "key": "Desktop Size",
+                "value": "160 x 80 cm"
+            },
+            {
+                "key": "Weight Capacity",
+                "value": "158 kg"
+            },
+            {
+                "key": "Material",
+                "value": "Bamboo"
+            },
+            {
+                "key": "Frame",
+                "value": "Steel"
+            }
+        ]
+    },
+    {
+        "name": "Corsair K100 RGB",
+        "discription": "High-performance mechanical gaming keyboard with OPX optical-mechanical switches.",
+        "price": 22999,
+        "category": "Keyboard",
+        "stock": 30,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Corsair+K100+RGB"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Corsair+K100+RGB+Side"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Switch Type",
+                "value": "Corsair OPX Optical-Mechanical"
+            },
+            {
+                "key": "Lighting",
+                "value": "Per-key RGB + 44-zone LightEdge"
+            },
+            {
+                "key": "Polling Rate",
+                "value": "4,000Hz Hyper-Polling"
+            },
+            {
+                "key": "Media Controls",
+                "value": "Dedicated, with multi-function wheel"
+            },
+            {
+                "key": "Wrist Rest",
+                "value": "Detachable, cushioned leatherette"
+            }
+        ]
+    },
+    {
+        "name": "Audeze Penrose X",
+        "discription": "Wireless gaming headset with planar magnetic drivers for Xbox and PC.",
+        "price": 29999,
+        "category": "Headset",
+        "stock": 20,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Audeze+Penrose+X"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Audeze+Penrose+X+Side"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Driver Type",
+                "value": "100mm Planar Magnetic"
+            },
+            {
+                "key": "Frequency Response",
+                "value": "10Hz - 50kHz"
+            },
+            {
+                "key": "Wireless",
+                "value": "2.4GHz + Bluetooth"
+            },
+            {
+                "key": "Battery Life",
+                "value": "Up to 15 hours"
+            },
+            {
+                "key": "Microphone",
+                "value": "Detachable broadcast quality"
+            }
+        ]
+    },
+    {
+        "name": "Lian Li PC-O11 Dynamic",
+        "discription": "Dual-chamber ATX case with tempered glass panels and excellent airflow.",
+        "price": 14999,
+        "category": "PC",
+        "stock": 25,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Lian+Li+PC-O11+Dynamic"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Lian+Li+PC-O11+Dynamic+Interior"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Form Factor",
+                "value": "Mid-Tower ATX"
+            },
+            {
+                "key": "Dimensions",
+                "value": "445 x 272 x 446 mm"
+            },
+            {
+                "key": "Material",
+                "value": "Aluminum, Tempered Glass"
+            },
+            {
+                "key": "Radiator Support",
+                "value": "Up to 360mm"
+            },
+            {
+                "key": "Drive Bays",
+                "value": "6x 2.5\", 3x 3.5\""
+            }
+        ]
+    },
+    {
+        "name": "Artisan Ninja FX Zero XSoft XL",
+        "discription": "Premium cloth gaming mousepad with zero-slip base and XSoft cushioning.",
+        "price": 5999,
+        "category": "Mousepad",
+        "stock": 30,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Artisan+Ninja+FX+Zero+XSoft+XL"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Artisan+Ninja+FX+Zero+XSoft+XL+Close"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Size",
+                "value": "490 x 420 x 4 mm"
+            },
+            {
+                "key": "Surface",
+                "value": "Soft cloth"
+            },
+            {
+                "key": "Base",
+                "value": "Non-slip rubber"
+            },
+            {
+                "key": "Thickness",
+                "value": "4mm (XSoft)"
+            },
+            {
+                "key": "Edges",
+                "value": "Stitched"
+            }
+        ]
+    },
+    {
+        "name": "8BitDo Pro 2",
+        "discription": "Customizable wireless controller compatible with Switch, PC, and mobile devices.",
+        "price": 4999,
+        "category": "Controller",
+        "stock": 40,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=8BitDo+Pro+2"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=8BitDo+Pro+2+Back"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Compatibility",
+                "value": "Switch, PC, Android, iOS"
+            },
+            {
+                "key": "Connectivity",
+                "value": "Bluetooth, USB-C"
+            },
+            {
+                "key": "Battery Life",
+                "value": "Up to 20 hours"
+            },
+            {
+                "key": "Customization",
+                "value": "Ultimate Software compatible"
+            },
+            {
+                "key": "Extra Buttons",
+                "value": "2 pro back paddle buttons"
+            }
+        ]
+    },
+    {
+        "name": "Edifier R1700BTs",
+        "discription": "Active bookshelf speakers with Bluetooth for versatile gaming and music setups.",
+        "price": 17999,
+        "category": "Speakers",
+        "stock": 25,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Edifier+R1700BTs"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Edifier+R1700BTs+Back"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Total Power Output",
+                "value": "66W RMS"
+            },
+            {
+                "key": "Frequency Response",
+                "value": "60Hz-20kHz"
+            },
+            {
+                "key": "Drivers",
+                "value": "4\" woofer, 0.75\" tweeter"
+            },
+            {
+                "key": "Inputs",
+                "value": "Bluetooth, Dual RCA"
+            },
+            {
+                "key": "Dimensions",
+                "value": "154 x 254 x 214 mm (each)"
+            }
+        ]
+    },
+    {
+        "name": "Acer Predator Helios 300",
+        "discription": "Powerful gaming laptop with high-refresh display and RTX graphics.",
+        "price": 129999,
+        "category": "Gaming Laptop",
+        "stock": 15,
+        "images": [
+            {
+                "public_id": "default",
+                "url": "https://via.placeholder.com/500x500.png?text=Acer+Predator+Helios+300"
+            },
+            {
+                "public_id": "alternate",
+                "url": "https://via.placeholder.com/500x500.png?text=Acer+Predator+Helios+300+Open"
+            }
+        ],
+        "user": "66cf4ee8e2eabeab82ad3303",
+        "specifications": [
+            {
+                "key": "Processor",
+                "value": "Intel Core i7-11800H"
+            },
+            {
+                "key": "Graphics",
+                "value": "NVIDIA GeForce RTX 3070"
+            },
+            {
+                "key": "RAM",
+                "value": "16GB DDR4"
+            },
+            {
+                "key": "Storage",
+                "value": "512GB NVMe SSD"
+            }
+        ]
     }
-
 
 
 
